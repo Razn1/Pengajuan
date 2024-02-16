@@ -10,6 +10,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h2>Mengajukan Data</h2>
+                                <a href="">TEs</a>
                             </div>
                             <div class="card-body">
                                 <form action="/pengajuan/simpan" method="post" enctype="multipart/form-data">
