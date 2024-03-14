@@ -47,55 +47,56 @@ Route::get('/loginsiswa', [LoginsiswaController::class, 'index'])->name('loginsi
 Route::post('/PostLoginn', [LoginsiswaController::class, 'loginsis']);
 Route::get('/logoutt', [LoginsiswaController::class, 'logout']);
 
-route::get('/send-email',function(){
-    $data = [
-        'name' => 'test',
-        'body' => 'test'
-    ];
+// route::get('/send-email',function(){
+//     $data = [
+//         'name' => 'test',
+//         'body' => 'test'
+//     ];
 
-    Mail::to('alfarrel218@gmail.com')->send(new SendEmail($data));
+//     Mail::to('alfarrel218@gmail.com')->send(new SendEmail($data));
 
-    dd("Email Berhasil Dikirim");
-});
+//     dd("Email Berhasil Dikirim");
+// });
 
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
-Route::middleware(['auth'])->group(function () {
+    Route::get('/user', [UserController::class, 'index'])->middleware('Admin');
+    Route::get('/user/tambah', [UserController::class, 'create'])->middleware('Admin');
+    Route::post('/user/save', [UserController::class, 'store'])->middleware('Admin');
+    Route::get('/user/{id}/delete', [UserController::class, 'destroy'])->middleware('Admin');
+    Route::get('/user/{id}/edit', [UserController::class, 'show'])->middleware('Admin');
+    Route::post('/user/{id}/update', [UserController::class, 'update'])->middleware('Admin');
+    Route::get('/prof',[UserController::class,'prof'])->middleware('Pembimbing');
 
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/user/change-password/{id}',[UserController::class,'password'])->middleware('Admin');
+    Route::post('/user/change/{id}',[UserController::class,'changePassword'])->name('user.change.password');
 
-    Route::get('/user', [UserController::class, 'index']);
-    Route::get('/user/tambah', [UserController::class, 'create']);
-    Route::post('/user/save', [UserController::class, 'store']);
-    Route::get('/user/{id}/delete', [UserController::class, 'destroy']);
-    Route::get('/user/{id}/edit', [UserController::class, 'show']);
-    Route::post('/user/{id}/update', [UserController::class, 'update']);
-
-    Route::get('/siswa', [SiswaController::class, 'index']);
-    Route::get('/profile',[SiswaController::class,'profile']);
-    Route::get('/siswa/{id}/edit', [SiswaController::class, 'profile']);
-    Route::post('/siswa/{id}/update', [SiswaController::class, 'update']);
+    Route::get('/siswa', [SiswaController::class, 'index'])->middleware('Admin');
+    Route::get('/profile',[SiswaController::class,'profile'])->middleware('Siswa');
+    Route::post('/siswa/{id}/update', [SiswaController::class, 'show'])->middleware('Siswa');
+    Route::post('/siswa/{id}/simpan', [SiswaController::class, 'update'])->middleware('Siswa');
     
-    Route::get('/mengajukan', [PengajuanController::class, 'create']);
-    Route::get('/pengajuan', [PengajuanController::class, 'index']);
-    Route::get('/pengajuan/terima', [PengajuanController::class, 'terima']);
-    Route::get('/pengajuan/tolak', [PengajuanController::class, 'tolak']);
+    Route::get('/mengajukan', [PengajuanController::class, 'create'])->middleware('auth');
+    Route::get('/pengajuan', [PengajuanController::class, 'index'])->middleware('Pembimbing');
+    Route::get('/pengajuan/terima', [PengajuanController::class, 'terima'])->middleware('Pembimbing');
+    Route::get('/pengajuan/tolak', [PengajuanController::class, 'tolak'])->middleware('Pembimbing');
 
-    Route::get('/pengajuansiswa', [PengajuanController::class, 'indexsiswa']);
-    Route::get('/pengajuansiswa/terima', [PengajuanController::class, 'diterima']);
-    Route::get('/pengajuansiswa/tolak', [PengajuanController::class, 'ditolak']);
+    Route::get('/pengajuansiswa', [PengajuanController::class, 'indexsiswa'])->middleware('Siswa');
+    Route::get('/pengajuansiswa/terima', [PengajuanController::class, 'diterima'])->middleware('Siswa');
+    Route::get('/pengajuansiswa/tolak', [PengajuanController::class, 'ditolak'])->middleware('Siswa');
 
-    Route::get('/pengajuan/tambah', [PengajuanController::class, 'create']);
-    Route::post('/pengajuan/simpan', [PengajuanController::class, 'store']);
-    Route::post('/pengajuan/eksekusi', [PengajuanController::class, 'eksekusi']);
-    Route::get('/pengajuan/{id}/open', [PengajuanController::class, 'open']);
+    Route::get('/pengajuan/tambah', [PengajuanController::class, 'create'])->middleware('Siswa');
+    Route::post('/pengajuan/simpan', [PengajuanController::class, 'store'])->middleware('Siswa');
+    Route::post('/pengajuan/eksekusi', [PengajuanController::class, 'eksekusi'])->middleware('Pembimbing');
+    Route::get('/pengajuan/{id}/open', [PengajuanController::class, 'open'])->middleware('auth');
    
-    Route::get('/persetujuan', [PersetujuanController::class, 'index']);
-    Route::get('/persetujuan/terima', [PersetujuanController::class, 'terima']);
-    Route::get('/persetujuan/tolak', [PersetujuanController::class, 'tolak']);
+    Route::get('/persetujuan', [PersetujuanController::class, 'index'])->middleware('Pembimbing');
+    Route::get('/persetujuan/terima', [PersetujuanController::class, 'terima'])->middleware('Pembimbing');
+    Route::get('/persetujuan/tolak', [PersetujuanController::class, 'tolak'])->middleware('Pembimbing');
 
     // Route::get('/persetujuan/tambah', [PersetujuanController::class, 'create']);
     // Route::post('/persetujuan/simpan', [PersetujuanController::class, 'store']);
     // Route::get('/persetujuan/{id}/edit', [PersetujuanController::class, 'show']);
     // Route::get('/persetujuan/{id}/hapus', [PersetujuanController::class, 'destroy']);
     // Route::post('/persetujuan/{id}/update', [PersetujuanController::class, 'update']);
-});
+

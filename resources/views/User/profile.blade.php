@@ -26,34 +26,6 @@
                                             <td>{{ Auth()->user()->nama }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Kelas :</th>
-                                            <td>
-                                                <hr class="vertical dark mt-0">
-                                            </td>
-                                            <td>{{ Auth()->user()->kelas }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Jurusan:</th>
-                                            <td>
-                                                <hr class="vertical dark mt-0">
-                                            </td>
-                                            <td>{{ Auth()->user()->jurusan }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Tempat PKL :</th>
-                                            <td>
-                                                <hr class="vertical dark mt-0">
-                                            </td>
-                                            <td>{{ Auth()->user()->tempat_pkl }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Nomor Telepon :</th>
-                                            <td>
-                                                <hr class="vertical dark mt-0">
-                                            </td>
-                                            <td>{{ Auth()->user()->no_telp }}</td>
-                                        </tr>
-                                        <tr>
                                             <th>Username :</th>
                                             <td>
                                                 <hr class="vertical dark mt-0">
@@ -72,9 +44,9 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <form action="/siswa/{{ Auth()->user()->id }}/update" method="post">
+                                <form action="/user/change-password/{id}" method="get">
                                     @csrf
-                                    <button type="submit" class="btn btn-primary">Edit Akun</button>
+                                    <button type="submit" class="btn btn-primary">Change Password</button>
                                 </form>
                             </div>
                         </div>

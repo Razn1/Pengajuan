@@ -678,10 +678,6 @@ progress {
   display: flex;
   width: 100%;
 } */
-.content-profile{ 
-  margin-left: 200px;
-  padding-left: 200px;
-}
 
 .container,
 .container-fluid,
@@ -699,12 +695,12 @@ progress {
   margin-right: auto;
   margin-left: auto;
 }
-.content-prof{
+/* .content-prof{
   align-items: center;
   justify-content: center;
   height: 500px;
   text-align: center;
-}
+} */
 
 @media (min-width: 576px) {
   .container,

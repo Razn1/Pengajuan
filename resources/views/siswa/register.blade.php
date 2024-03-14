@@ -66,7 +66,7 @@
             <div class="toggle">
                 <div class="toggle-panel toggle-right">
                     <h1>Hello, Siswa!</h1>
-                    <p>Login with your personal details to use all of site features</p>
+                    <p>Register with your personal details to use all of site features</p>
                 </div>
             </div>
         </div>

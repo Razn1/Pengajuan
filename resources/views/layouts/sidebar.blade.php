@@ -22,15 +22,15 @@
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#vrExamples">
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#siswaMenu">
                         <span class="sidenav-mini-icon"> V </span>
                         <span class="sidenav-normal"> Siswa <b class="caret"></b></span>
                     </a>
-                    <div class="collapse" id="vrExamples" style="">
+                    <div class="collapse" id="siswaMenu" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link " href="/siswa">
+                                <a class="nav-link" href="/siswa">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Data Siswa </span>
                                 </a>
@@ -38,21 +38,21 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#vrExamples">
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#userMenu">
                         <span class="sidenav-mini-icon"> V </span>
                         <span class="sidenav-normal"> User <b class="caret"></b></span>
                     </a>
-                    <div class="collapse" id="vrExamples" style="">
+                    <div class="collapse" id="userMenu" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link " href="/user">
+                                <a class="nav-link" href="/user">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Data User </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " href="/user/tambah">
+                                <a class="nav-link" href="/user/tambah">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Tambah Data </span>
                                 </a>
@@ -60,27 +60,29 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#vrExamples">
+                <!-- Sisipkan kode yang sama untuk menu lainnya -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false"
+                        href="#persetujuanMenu">
                         <span class="sidenav-mini-icon"> V </span>
                         <span class="sidenav-normal"> Persetujuan <b class="caret"></b></span>
                     </a>
-                    <div class="collapse" id="vrExamples" style="">
+                    <div class="collapse" id="persetujuanMenu" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link " href="/persetujuan">
+                                <a class="nav-link" href="/persetujuan">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Data Persetujuan </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " href="/persetujuan/terima">
+                                <a class="nav-link" href="/persetujuan/terima">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Data Diterima </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " href="/persetujuan/tolak">
+                                <a class="nav-link" href="/persetujuan/tolak">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Data Ditolak </span>
                                 </a>
@@ -88,27 +90,27 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#vrExamples">
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#pengajuanMenu">
                         <span class="sidenav-mini-icon"> V </span>
                         <span class="sidenav-normal"> Pengajuan <b class="caret"></b></span>
                     </a>
-                    <div class="collapse" id="vrExamples" style="">
+                    <div class="collapse" id="pengajuanMenu" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link " href="/pengajuan">
+                                <a class="nav-link" href="/pengajuan">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Data Diproses </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " href="/pengajuan/terima">
+                                <a class="nav-link" href="/pengajuan/terima">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Data Diterima </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " href="/pengajuan/tolak">
+                                <a class="nav-link" href="/pengajuan/tolak">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Data Ditolak </span>
                                 </a>
@@ -120,7 +122,16 @@
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/">
+                    <a class="nav-link " href="/prof">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/home">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa fa-sign-out text-warning text-sm opacity-10"></i>
@@ -157,11 +168,11 @@
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false"
-                        href="#vrExamples">
+                        href="#pengajuanMenu">
                         <span class="sidenav-mini-icon"> V </span>
                         <span class="sidenav-normal"> Pengajuan <b class="caret"></b></span>
                     </a>
-                    <div class="collapse" id="vrExamples" style="">
+                    <div class="collapse" id="pengajuanMenu" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link " href="/pengajuan">
@@ -186,11 +197,11 @@
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false"
-                        href="#vrExamples">
+                        href="#persetujuanMenu">
                         <span class="sidenav-mini-icon"> V </span>
                         <span class="sidenav-normal"> Persetujuan <b class="caret"></b></span>
                     </a>
-                    <div class="collapse" id="vrExamples" style="">
+                    <div class="collapse" id="persetujuanMenu" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link " href="/persetujuan/terima">
@@ -211,7 +222,16 @@
                     <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/">
+                    <a class="nav-link " href="/prof">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/home">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
@@ -298,7 +318,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="/">
+                    <a class="nav-link " href="/home">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>

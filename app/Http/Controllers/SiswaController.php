@@ -54,8 +54,8 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        $siswa = User::find($id);
-        return view('siswa.profile', compact(['siswa']));
+        $user = User::find($id);
+        return view('siswa.edit', compact(['user']));
     }
 
     /**
@@ -94,7 +94,7 @@ class SiswaController extends Controller
             'no_telp' => $request->no_telp,
             $request->except(['_token'])
         ]);
-        return redirect('/siswa')->with('update', 'Data Berhasil Ditambahkan');
+        return redirect('/profile')->with('update', 'Data Berhasil Ditambahkan');
     }
 
     /**

@@ -18,16 +18,14 @@
             <div class="menu">
                 <ul>
                     <li><a href="/">HOME</a></li>
-                    <li><a href="/login">ADMIN</a></li>
-                    <li><a href="/loginsiswa">SISWA</a></li>
+                    <li><a href="/home">LOGIN</a></li>
                 </ul>
             </div>
 
         </div>
         <div class="content">
             <h1><span>Pengajuan <br>Judul Laporan</span></h1>
-            <p class="par">Aplikasi yang digunakan untuk mengajukan judul laporan <br> dan proposal Siswa SMK MARHAS.
-            <br>Silahkan menekan tombol Siswa jika anda siswa <br>dan tekan tombol Admin jika anda admin.</p>
+            <p class="par">Aplikasi yang digunakan untuk mengajukan judul laporan <br> dan proposal Siswa SMK MARHAS.</p>
 
             <div class="form">
                 <img src="{{ asset('assets/img/i.png') }}" alt="">

@@ -32,7 +32,7 @@
                 <input type="username" name="username" placeholder="Username">
                 <input type="password" name="password" placeholder="Password">
                 <button class="btn mt-3">Login</button>
-                <a href="/" class="hidden" id="login">Back</a>
+                <a href="/home" class="hidden" id="login">Back</a>
             </form>
         </div>
         <div class="toggle-container">

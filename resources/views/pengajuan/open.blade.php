@@ -10,8 +10,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 5%;
-            padding: %;
+            margin: 20%;
+            padding: 4%;
             background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
@@ -25,8 +25,6 @@
             flex-direction: column;
             align-items: center;
             margin-top: 20px;
-            
-           
         }
 
         canvas {
