@@ -13,10 +13,10 @@ class LoginsiswaController extends Controller
     }
     public function loginsis(Request $request)
     {
-        if (Auth::attempt($request->only('email', 'password'))) {;
+        if (Auth::attempt($request->only('username', 'password'))) {;
             return redirect('/dashboard')->with('message', 'Berhasil Login');
         } else {
-            return redirect('/loginsiswa')->with('delete', 'Email dan Password Anda salah');
+            return redirect('/loginsiswa')->with('delete', 'Username dan Password Anda salah');
         };
     }
     public function logout()

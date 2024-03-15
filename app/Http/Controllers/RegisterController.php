@@ -17,13 +17,11 @@ class RegisterController extends Controller
     {
         $validateData = $request->validate([
             'nis' => 'required|max:11',
-            'email' => 'required',
             'username' => 'required',
             'password' => 'required'
         ]);
         User::create([
             'nis' => $request->nis,
-            'email' => $request->email,
             'level' => 'Siswa',
             'username' => $request->username,
             'password' => bcrypt($request->password),

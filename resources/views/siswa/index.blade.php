@@ -20,7 +20,6 @@
                                                 <th>Jurusan</th>
                                                 <th>Tempat PKL</th>
                                                 <th>Nomor Telepon</th>
-                                                <th>Email</th>
                                                 <th>Username</th>
                                             </tr>
                                         </thead>
@@ -33,7 +32,6 @@
                                                     <td>{{ $s->jurusan }}</td>
                                                     <td>{{ $s->tempat_pkl }}</td>
                                                     <td>{{ $s->no_telp }}</td>
-                                                    <td>{{ $s->email }}</td>
                                                     <td>{{ $s->username }}</td>
                                                 </tr>
                                             @endforeach

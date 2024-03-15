@@ -17,7 +17,7 @@ class Persetujuan extends Model
     ];
     protected $table = 'persetujuans';
     public function persetujuan(){
-        return $this->hasMay(Persetujuan::class, 'id','id');
+        return $this->hasMany(Persetujuan::class, 'id','id');
     }
     public function siswa(){
         return $this->belongsTo(Siswa::class, 'nis','nis');

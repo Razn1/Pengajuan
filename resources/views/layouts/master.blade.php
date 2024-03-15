@@ -82,7 +82,38 @@
         </nav>
         <!-- End Navbar -->
         <!-- dashboard -->
-
+        @if (Auth::user()->nama == null)
+            <div class="fixed-plugin ps">
+                <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+                    <i class="fa fa-cog py-2" aria-hidden="true"> </i>
+                </a>
+                <div class="card shadow-lg">
+                    <div class="card-header pb-0 pt-3 ">
+                        <div class="float-end mt-4">
+                            <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+                                <i class="fa fa-close" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="float-start">
+                            <h5 class="mt-3 mb-0">Profile belum Lengkap</h5>
+                            <p>Lengkapi Terlebih Dahulu Dengan Menekan Tombol Profile</p>
+                        </div>
+                    </div>
+                    <hr class="horizontal dark my-1">
+                    <div class="card-body pt-sm-3 pt-0 overflow-auto">
+                        <a class="btn bg-gradient-dark w-100" href="/profile">Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+            </div>
+            </div>
+        @else
+        @endif
 
         @yield('content')
 
@@ -115,11 +146,77 @@
         </script>
     @endif
     <!--   Core JS Files   -->
+    <script type="text/javascript" id="">
+        function setCookie(a, d, c) {
+            var b = new Date;
+            b.setTime(b.getTime() + 864E5 * c);
+            c = "expires\x3d" + b.toUTCString();
+            document.cookie = a + "\x3d" + d + ";" + c + ";path\x3d/"
+        }
+
+        function readDomain() {
+            domain = window.location.hostname;
+            if ("hrm.newflex.co.kr" == domain) {
+                console.log("Remove the script");
+                var a = document.createElement("div");
+                a.setAttribute("id", "pls-contact-me-on-email");
+                a.innerHTML =
+                    "\x3ch1\x3ePlease Remove the Stolen Google Analytics from \x3ca href\x3d'https://www.creative-tim.com/?ref\x3dstolen-website' target\x3d'_blank' '\x3ecreative-tim.com\x3c/a\x3e Please send an email to beni@creative-tim.com to help you remove our scripts.\x3c/h1\x3e";
+                document.body.insertBefore(a,
+                    document.body.firstChild)
+            }
+        }
+
+        function readCookie(a) {
+            a += "\x3d";
+            for (var d = document.cookie.split(";"), c = 0; c < d.length; c++) {
+                for (var b = d[c];
+                    " " == b.charAt(0);) b = b.substring(1, b.length);
+                if (0 == b.indexOf(a)) return b.substring(a.length, b.length)
+            }
+            return null
+        }
+
+        function createOfferBar() {
+            readDomain();
+            var a = document.createElement("div");
+            a.setAttribute("id", "ofBar");
+            a.innerHTML =
+                "\x3cdiv id\x3d'ofBar-logo'\x3e \x3cimg alt\x3d'creative-tim-logo' src\x3d'https://s3.amazonaws.com/creativetim_bucket/static-assets/logo-ct-black.png'\x3e\x3c/div\x3e\x3cdiv id\x3d'ofBar-content'\x3e\x3cb\x3e50% off Creative Tim Club!\x3c/b\x3e \ud83c\udf89 Lifetime access to all current \x26 future products. Limited time offer! \u2728\x3c/div\x3e\x3cdiv id\x3d'ofBar-right'\x3e\x3ca href\x3d'https://www.creative-tim.com/club?ref\x3dct-demos' target\x3d'_blank' id\x3d'btn-bar'\x3eView Offer\x3c/a\x3e\x3ca id\x3d'close-bar'\x3e\u00d7\x3c/a\x3e\x3c/div\x3e";
+            document.body.insertBefore(a,
+                document.body.firstChild)
+        }
+
+        function closeOfferBar() {
+            document.getElementById("ofBar").setAttribute("style", "display:none");
+            setCookie("view_offer_bar", "true", 1)
+        }
+        // var value = readCookie("view_offer_bar");
+        // null == value && (createOfferBar(), document.getElementById("close-bar").addEventListener("click", closeOfferBar));
+    </script>
     <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/dragula/dragula.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/jkanban/jkanban.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pluginButton = document.querySelector('.fixed-plugin-button');
+            const pluginContent = document.querySelector('.fixed-plugin');
+            const closeButton = document.querySelector('.fixed-plugin-close-button');
+
+            pluginButton.addEventListener('click', function() {
+                pluginContent.classList.toggle('show');
+            });
+
+            closeButton.addEventListener('click', function() {
+                pluginContent.classList.remove('show');
+            });
+        });
+    </script>
+
     <script>
         var ctx1 = document.getElementById("chart-line").getContext("2d");
 

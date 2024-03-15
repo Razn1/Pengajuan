@@ -16,7 +16,7 @@ class Pengajuan extends Model
     ];
     protected $table = 'pengajuans';
     public function pengajuan(){
-        return $this->hasMay(Pengajuan::class, 'id','id');
+        return $this->hasMany(Pengajuan::class, 'id','id');
     }
     public function siswa(){
         return $this->belongsTo(Siswa::class, 'nis','nis');

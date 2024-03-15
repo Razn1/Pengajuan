@@ -66,7 +66,6 @@
                                                 <hr class="vertical dark mt-0">
                                             </td>
                                             <td>{{ Auth()->user()->level }}</td>
-
                                         </tr>
                                     </table>
                                 </div>
@@ -84,5 +83,5 @@
         </section>
     </div>
 
-   
+
 @endsection

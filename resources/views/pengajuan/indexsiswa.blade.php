@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Siswa')
+@section('title', 'PengajuanSiswa')
 @section('content')
     <br>
     <div class="content-wrapper">
@@ -47,7 +47,6 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-
                             </div>
                         </div>
                     </div>

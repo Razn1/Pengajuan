@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2024 at 02:03 AM
+-- Generation Time: Mar 15, 2024 at 09:24 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -54,11 +54,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(11, '2014_10_12_000000_create_users_table', 1),
-(12, '2014_10_12_100000_create_password_resets_table', 1),
-(13, '2019_08_19_000000_create_failed_jobs_table', 1),
-(14, '2024_01_10_021444_create_persetujuans_table', 1),
-(15, '2024_01_10_021642_create_pengajuans_table', 1);
+(41, '2014_10_12_000000_create_users_table', 1),
+(42, '2014_10_12_100000_create_password_resets_table', 1),
+(43, '2019_08_19_000000_create_failed_jobs_table', 1),
+(44, '2024_01_10_021444_create_persetujuans_table', 1),
+(45, '2024_01_10_021642_create_pengajuans_table', 1);
 
 -- --------------------------------------------------------
 
@@ -93,11 +93,8 @@ CREATE TABLE `pengajuans` (
 --
 
 INSERT INTO `pengajuans` (`id`, `nis`, `judul_laporan`, `proposal`, `status`, `created_at`, `updated_at`) VALUES
-(1, 12, 'judul', '1706081982_Latihan Soal PSAS DKV[1].pdf', 'proses', '2024-01-24 00:39:42', '2024-01-24 00:39:42'),
-(2, 12, 'judul', '1706082015_SOAL PSTS GENAP_WEB2_XI PPLG.pdf', 'proses', '2024-01-24 00:40:15', '2024-01-24 00:40:15'),
-(3, 1, 'judul', '1706083671_Latihan Soal PSAS DKV[1].pdf', 'proses', '2024-01-24 01:07:51', '2024-01-24 01:07:51'),
-(4, 1, 'judul', '1706084479_Latihan Soal PSAS DKV[1].pdf', 'proses', '2024-01-24 01:21:19', '2024-01-24 01:21:19'),
-(5, 1, 'contoh', '1706084571_SOAL PSTS GENAP_WEB2_XI PPLG.pdf', 'proses', '2024-01-24 01:22:51', '2024-01-24 01:22:51');
+(1, 12321, 'example', '1710487591_3b. sistematika penulisan laporan PKL 2023-2024 (REV FEB).pdf', 'diterima', '2024-03-15 00:26:32', '2024-03-15 00:52:42'),
+(2, 123, 'example', '1710487840_Rangkuman Materi DPPLG 2 Semester 2 (Metode Pengembangan Sistem & Data).pdf', 'diterima', '2024-03-15 00:30:40', '2024-03-15 01:14:14');
 
 -- --------------------------------------------------------
 
@@ -121,8 +118,9 @@ CREATE TABLE `persetujuans` (
 --
 
 INSERT INTO `persetujuans` (`id`, `nis`, `id_user`, `id_pengajuan`, `tanggal_acc`, `status`, `created_at`, `updated_at`) VALUES
-(1, 12, 3, 1, '2024-01-24', 'Diterima', '2024-01-24 01:41:09', '2024-01-24 01:41:09'),
-(2, 12, 3, 2, '2024-01-24', 'Ditolak', '2024-01-24 01:41:32', '2024-01-24 01:41:32');
+(1, 12321, 1, 1, '2024-03-15', 'Diterima', '2024-03-15 00:52:42', '2024-03-15 00:52:42'),
+(2, 123, 2, 2, '2024-03-15', 'Diterima', '2024-03-15 01:14:14', '2024-03-15 01:14:14'),
+(3, 123, 2, 2, '2024-03-15', 'Diterima', '2024-03-15 01:14:57', '2024-03-15 01:14:57');
 
 -- --------------------------------------------------------
 
@@ -138,7 +136,6 @@ CREATE TABLE `users` (
   `jurusan` varchar(50) DEFAULT NULL,
   `tempat_pkl` varchar(50) DEFAULT NULL,
   `no_telp` char(15) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
   `level` enum('Admin','Pembimbing','Siswa') NOT NULL,
@@ -150,11 +147,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `nis`, `nama`, `kelas`, `jurusan`, `tempat_pkl`, `no_telp`, `email`, `username`, `password`, `level`, `created_at`, `updated_at`) VALUES
-(1, 12, NULL, NULL, NULL, NULL, NULL, '123@gmail.com', 'irfan1301', '$2y$10$CCSEtbUItQNVIof33D9mfe4BxriNED5oHm.CY5nJdJMDyNuOAcIcm', 'Siswa', '2024-01-23 18:03:22', '2024-01-23 18:03:22'),
-(2, NULL, 'Admin', NULL, NULL, NULL, NULL, NULL, 'admin', '$2y$10$3/Qjfb/4osyDWUS6qjQBauwznkXPENV1P7WLc2z9pe2LOicmMbVrG', 'Admin', '2024-01-24 00:23:18', '2024-01-24 00:23:18'),
-(3, NULL, 'Pembimbing', NULL, NULL, NULL, NULL, NULL, 'pembimbing', '$2y$10$A/3gesvURLjqX5gH4sxAm.99K2DjJWdQ3bJHJ4tv86zDcuvCw6h7.', 'Admin', '2024-01-24 00:23:58', '2024-01-24 00:23:58'),
-(5, 1, NULL, NULL, NULL, NULL, NULL, '1234@gmail.com', '12', '$2y$10$jISLrA4OODvRof.9HqyWJe7yG5i5Sl9n1S7C4B1zXVyXHVmJdj8A6', 'Siswa', '2024-01-24 00:34:15', '2024-01-24 00:34:15');
+INSERT INTO `users` (`id`, `nis`, `nama`, `kelas`, `jurusan`, `tempat_pkl`, `no_telp`, `username`, `password`, `level`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Admin', NULL, NULL, NULL, NULL, 'Admin', '$2y$10$BoMZqvdb7uG6u8p//Dk6JOSKPnx2Cbn2vdjQhOvJfzwkvfwnOv/6C', 'Admin', '2024-03-14 23:13:44', '2024-03-14 23:13:44'),
+(2, NULL, 'Pembimbing', NULL, NULL, NULL, NULL, 'Pembimbing', '$2y$10$qaSLkPZKB7CSV4uwAaPeDeg1NVM7PlpLyfL5MfEPuklUKRwCXtrrG', 'Pembimbing', '2024-03-14 23:13:44', '2024-03-14 23:13:44'),
+(3, 12321, 'Faisa', 'XII PPLG 4', 'Pengembangan Perangkat Lunak dan Gim', 'Sekolahan.id', '08123212321', 'Alfarrel', '$2y$10$MTEO.0IprfllzvmPHEa2w.fH3ZkRbDPGiXIMeTkfXh7HVW3Ay3q3.', 'Siswa', '2024-03-14 23:13:44', '2024-03-15 00:13:17'),
+(5, 123, 'Alfarrel', 'XII PPLG 4', 'Pengembangan Perangkat Lunak dan Gim', 'Sekolahan.id', '08123212321', 'faisa', '$2y$10$8qhuN6BXd5CzusyZIcUHOefQrsxstfXgKoWB8jXgOURlMUm.Kgtzq', 'Siswa', '2024-03-15 00:29:23', '2024-03-15 00:30:21');
 
 --
 -- Indexes for dumped tables
@@ -197,8 +194,7 @@ ALTER TABLE `persetujuans`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_username_unique` (`username`),
-  ADD UNIQUE KEY `users_nis_unique` (`nis`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD UNIQUE KEY `users_nis_unique` (`nis`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -214,25 +210,25 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `pengajuans`
 --
 ALTER TABLE `pengajuans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `persetujuans`
 --
 ALTER TABLE `persetujuans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

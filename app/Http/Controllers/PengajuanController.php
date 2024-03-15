@@ -22,7 +22,8 @@ class PengajuanController extends Controller
     {
         $pengajuan = Pengajuan::where('status', 'proses')
             ->get();
-        $user = User::all();
+        $user = User::where('level', ['Pembimbing', 'Admin'])
+            ->get();
         return view('pengajuan.index', compact(['pengajuan'], 'user',));
     }
 
@@ -30,7 +31,8 @@ class PengajuanController extends Controller
     {
         $pengajuan = Pengajuan::where('status', 'diterima')
             ->get();
-        $user = User::all();
+        $user = User::where('level', ['Pembimbing', 'Admin'])
+            ->get();
         return view('pengajuan.index', compact(['pengajuan'], 'user',));
     }
 
@@ -38,29 +40,54 @@ class PengajuanController extends Controller
     {
         $pengajuan = Pengajuan::where('status', 'ditolak')
             ->get();
-        $user = User::all();
+        $user = User::where('level', ['Pembimbing', 'Admin'])
+            ->get();
         return view('pengajuan.index', compact(['pengajuan'], 'user',));
     }
 
     public function indexsiswa()
     {
-        $pengajuan = Pengajuan::where('status', 'proses')
+        $userId = Auth()->User()->nis;
+
+        // Ambil pengajuan hanya untuk pengguna yang masuk saat ini
+        $pengajuan = Pengajuan::where('nis', $userId)
+            ->where('status', 'proses')
             ->get();
-        return view('pengajuan.indexsiswa', compact(['pengajuan']));
+    
+        // Jika ingin menyertakan informasi pengguna dalam tampilan juga
+        $user = User::find($userId);
+    
+        return view('pengajuan.indexsiswa', compact('pengajuan', 'user'));
     }
 
     public function diterima()
     {
-        $pengajuan = Pengajuan::where('status', 'diterima')
+        $userId = Auth()->User()->nis;
+
+        // Ambil pengajuan hanya untuk pengguna yang masuk saat ini
+        $pengajuan = Pengajuan::where('nis', $userId)
+            ->where('status', 'diterima')
             ->get();
-        return view('pengajuan.indexsiswa', compact(['pengajuan']));
+    
+        // Jika ingin menyertakan informasi pengguna dalam tampilan juga
+        $user = User::find($userId);
+    
+        return view('pengajuan.indexsiswa', compact('pengajuan', 'user'));
     }
 
     public function ditolak()
     {
-        $pengajuan = Pengajuan::where('status', 'ditolak')
+        $userId = Auth()->User()->nis;
+
+        // Ambil pengajuan hanya untuk pengguna yang masuk saat ini
+        $pengajuan = Pengajuan::where('nis', $userId)
+            ->where('status', 'ditolak')
             ->get();
-        return view('pengajuan.indexsiswa', compact(['pengajuan']));
+    
+        // Jika ingin menyertakan informasi pengguna dalam tampilan juga
+        $user = User::find($userId);
+    
+        return view('pengajuan.indexsiswa', compact('pengajuan', 'user'));
     }
 
     /**
@@ -71,7 +98,7 @@ class PengajuanController extends Controller
     public function create()
     {
 
-        $siswa = $siswa = User::where('level', 'Siswa')
+        $siswa = User::where('level', 'Siswa')
             ->get();
         return view('mengajukan.index', compact(['siswa'],));
     }

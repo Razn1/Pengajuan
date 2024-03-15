@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Siswa')
+@section('title', 'Pengajuan')
 @section('content')
     <br>
     <div class="content-wrapper">
@@ -89,7 +89,7 @@
                             <label for="" class="form-label">Pembimbing</label>
                             <select name="id_user" class="form-control" id="">
                                 @foreach ($user as $user)
-                                    <option value="{{ $user->id }}">{{ $user->nama }}</option>
+                                    <option value="{{ $user->id }}">{{ Auth()->user()->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -97,7 +97,6 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Status</label>
                             <select name="status" class="form-control " id="">
-
                                 <option value="ditolak">ditolak</option>
                                 <option value="diterima">diterima</option>
                             </select>

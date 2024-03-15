@@ -24,43 +24,39 @@
     @endif
     <div class="container" id="container">
         <div class="form-container sign-in">
-            <div class="scrollbar" id="style-1">
+            {{-- <div class="scrollbar" id="style-1"> --}}
                 <div class="force-overflow">
                     <form action="/regis" method="post" role="form">
                         @csrf
                         <img src="{{ asset('/assets/img/i.png') }}" alt="main_logo">
                         <h1>Login</h1>
                         <span>Enter Your Data</span>
-                        <input class="form-control @error('nis') is-invalid @enderror" value="{{old('nis')}}" type="text" name="nis"
-                            placeholder="NIS">
+                        <input class="form-control @error('nis') is-invalid @enderror" value="{{ old('nis') }}"
+                            type="text" name="nis" placeholder="NIS">
                         @error('nis')
                             <div class="invalidate-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
-                        <input class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" type="email" name="email" placeholder="Email">
-                        @error('email')
-                        <div class="invalidate-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                        <input class="form-control @error('username') is-invalid @enderror" value="{{old('username')}}" type="text" name="username" placeholder="Username">
-                        @error('username') 
-                        <div class="invalidate-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                        <input class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}" type="password" name="password" placeholder="Password">
+                        <input class="form-control @error('username') is-invalid @enderror"
+                            value="{{ old('username') }}" type="text" name="username" placeholder="Username">
+                        @error('username')
+                            <div class="invalidate-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <input class="form-control @error('password') is-invalid @enderror"
+                            value="{{ old('password') }}" type="password" name="password" placeholder="Password">
                         @error('password')
-                        <div class="invalidate-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
+                            <div class="invalidate-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <button class="btn mt-3">Register</button>
                         <a href="/loginsiswa" class="hidden" id="login">Back</a>
                     </form>
                 </div>
-            </div>
+            {{-- </div> --}}
         </div>
         <div class="toggle-container">
             <div class="toggle">

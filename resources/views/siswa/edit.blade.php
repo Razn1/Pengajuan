@@ -14,7 +14,6 @@
                             <div class="card-body">
                                 <form action="/siswa/{{ $user->id }}/simpan" method="post">
                                     @csrf
-
                                     <div class="form-group">
                                         <label for="" class="form-label">Nama</label>
                                         <input type="text" name="nama" value="{{ $user->nama }}" id=""

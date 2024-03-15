@@ -242,7 +242,7 @@
             </ul>
         </div>
     </aside>
-@else
+@elseif(Auth::user()->nama != null)
     <aside
         class="sidenav bg-default navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
         id="sidenav-main">
@@ -326,7 +326,6 @@
                         <span class="nav-link-text ms-1">Logout</span>
                     </a>
                 </li>
-
             </ul>
         </div>
     </aside>

@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('jurusan',50)->nullable();
             $table->string('tempat_pkl',50)->nullable();
             $table->char('no_telp',15)->nullable();
-            $table->string('email',50)->unique()->nullable();
             $table->string('username',30)->unique();
             $table->string('password');
             $table->enum('level',['Admin','Pembimbing','Siswa']);
