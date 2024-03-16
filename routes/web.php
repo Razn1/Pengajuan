@@ -74,13 +74,15 @@ Route::post('/user/save', [UserController::class, 'store'])->middleware('Admin')
 Route::get('/user/{id}/delete', [UserController::class, 'destroy'])->middleware('Admin');
 Route::get('/user/{id}/edit', [UserController::class, 'show'])->middleware('Admin');
 Route::post('/user/{id}/update', [UserController::class, 'update'])->middleware('Admin');
+
+
+Route::get('/siswa', [SiswaController::class, 'index'])->middleware('Admin');
+
+
 Route::get('/prof', [UserController::class, 'prof'])->middleware('Pembimbing');
-
-
 Route::get('/pengajuan', [PengajuanController::class, 'index'])->middleware('Pembimbing');
 Route::get('/pengajuan/terima', [PengajuanController::class, 'terima'])->middleware('Pembimbing');
 Route::get('/pengajuan/tolak', [PengajuanController::class, 'tolak'])->middleware('Pembimbing');
-Route::post('/pengajuan/simpan', [PengajuanController::class, 'store'])->middleware('Siswa');
 Route::post('/pengajuan/eksekusi', [PengajuanController::class, 'eksekusi'])->middleware('Pembimbing');
 
 
@@ -94,7 +96,6 @@ Route::get('/persetujuan/tolak', [PersetujuanController::class, 'tolak'])->middl
 
 
 //Khusus Siswa
-Route::get('/siswa', [SiswaController::class, 'index'])->middleware('Admin');
 Route::get('/profile', [SiswaController::class, 'profile'])->middleware('Siswa');
 Route::post('/siswa/{id}/update', [SiswaController::class, 'show'])->middleware('Siswa');
 Route::post('/siswa/{id}/simpan', [SiswaController::class, 'update'])->middleware('Siswa');
@@ -104,6 +105,7 @@ Route::get('/mengajukan', [PengajuanController::class, 'create'])->middleware('S
 Route::get('/pengajuansiswa', [PengajuanController::class, 'indexsiswa'])->middleware('Siswa');
 Route::get('/pengajuansiswa/terima', [PengajuanController::class, 'diterima'])->middleware('Siswa');
 Route::get('/pengajuansiswa/tolak', [PengajuanController::class, 'ditolak'])->middleware('Siswa');
+Route::post('/pengajuan/simpan', [PengajuanController::class, 'store'])->middleware('Siswa');
 
 
 Route::get('/pengajuan/tambah', [PengajuanController::class, 'create'])->middleware('Siswa');
