@@ -31,16 +31,18 @@
                                                     <td><a href="/">{{ $pg->proposal }}</a></td>
                                                     <td>{{ $pg->status }}</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-primary btn-lg"
-                                                            data-bs-toggle="modal" data-bs-target="#modalId"
-                                                            onclick="prepareModal({{ $pg->id }},'{{ $pg->nis }}')">
-                                                            Eksekusi
-                                                        </button>
+                                                        @if ($pengajuan->where('status', 'proses')->isNotEmpty())
+                                                            <button type="button" class="btn btn-primary btn-lg"
+                                                                data-bs-toggle="modal" data-bs-target="#modalId"
+                                                                onclick="prepareModal({{ $pg->id }},'{{ $pg->nis }}')">
+                                                                Eksekusi
+                                                            </button>
+                                                        @endif
                                                         <a href="/pengajuan/{{ $pg->id }}/open" target="_blank"
                                                             class="btn btn-info">Open</a>
                                                     </td>
                                                     <td>
-                                                        
+
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -147,4 +149,3 @@
     </script>
 
 @endsection
-

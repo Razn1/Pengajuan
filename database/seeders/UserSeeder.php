@@ -42,5 +42,13 @@ class UserSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
+        DB::table('users')->insert([
+            'nis' => '123',
+            'username' => 'Faisa',
+            'password' => bcrypt('12345'),
+            'level' => 'Siswa',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
     }
 }

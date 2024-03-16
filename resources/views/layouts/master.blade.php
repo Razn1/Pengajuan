@@ -112,7 +112,6 @@
                 <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
             </div>
             </div>
-        @else
         @endif
 
         @yield('content')

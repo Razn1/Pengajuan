@@ -21,6 +21,7 @@
                                                 <th>Tempat PKL</th>
                                                 <th>Nomor Telepon</th>
                                                 <th>Username</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -33,6 +34,11 @@
                                                     <td>{{ $s->tempat_pkl }}</td>
                                                     <td>{{ $s->no_telp }}</td>
                                                     <td>{{ $s->username }}</td>
+                                                    <td>
+                                                        <a href="/user/{{ $s->id }}/delete"
+                                                            class="btn btn-outline-danger"
+                                                            onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ini?')">Delete</a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

@@ -18,6 +18,8 @@ class PengajuanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //Admin dan Pembimbing
     public function index()
     {
         $pengajuan = Pengajuan::where('status', 'proses')
@@ -45,6 +47,7 @@ class PengajuanController extends Controller
         return view('pengajuan.index', compact(['pengajuan'], 'user',));
     }
 
+    //Khusus Siswa
     public function indexsiswa()
     {
         $userId = Auth()->User()->nis;
@@ -95,6 +98,7 @@ class PengajuanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Khusus Siswa
     public function create()
     {
 
@@ -109,6 +113,7 @@ class PengajuanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Khusus Siswa
     public function store(Request $request)
     {
         $validateData = $request->validate([

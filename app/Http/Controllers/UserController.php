@@ -56,7 +56,7 @@ class UserController extends Controller
             'level' => $request->level,
             $request->except(['_token']),
         ]);
-        return redirect('/user')->with('message', 'data telah tersimpan');
+        return redirect('/user')->with('message', 'Data Telah Ditambahkan');
     }
 
     /**
@@ -94,18 +94,16 @@ class UserController extends Controller
         $validateData = $request->validate([
             'nama' => 'required',
             'username' => 'required',
-            'password' => 'required',
             'level' => 'required'
         ]);
         $user = User::find($id);
         $user->update([
             'nama' => $request->nama,
             'username' => $request->username,
-            'password' => bcrypt($request->password),
             'level' => $request->level,
             $request->except(['_token'])
         ]);
-        return redirect('/user')->with('update', 'Data Berhasil Ditambahkan');
+        return redirect('/user')->with('update', 'Data Berhasil Diupdate');
     }
 
     /**
@@ -118,7 +116,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return redirect('/user')->with('delete', 'data telah dihapus');
+        return redirect('/user')->with('delete', 'Data Telah Dihapus');
     }
 
     public function prof()

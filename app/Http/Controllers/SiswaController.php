@@ -94,7 +94,7 @@ class SiswaController extends Controller
             'no_telp' => $request->no_telp,
             $request->except(['_token'])
         ]);
-        return redirect('/profile')->with('update', 'Data Berhasil Ditambahkan');
+        return redirect('/profile')->with('update', 'Data Berhasil Diupdate');
     }
 
     /**

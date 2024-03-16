@@ -34,19 +34,9 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="" class="form-label">Password</label>
-                                    <input type="password" name="password" value="{{$user->password}}" id="" class="form-control @error('password') is-invalid @enderror" aria-describedby="helpId">
-                                    @error('password')
-                                    <div class="invalidate-feedback">
-                                        {{$message}}
-                                    </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
                                     <label for="" class="form-label">Level</label><select name="level" class="form-control" value="{{old('level')}}" id="">
                                         <option value="Admin">Admin</option>
                                         <option value="Pembimbing">Pembimbing</option>
-                                        <option value="Siswa">Siswa</option>
                                     </select>   
                                 </div>
                                 <button type="submit" class="btn btn-info text-dark">Save</button>
