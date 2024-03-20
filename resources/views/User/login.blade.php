@@ -14,17 +14,14 @@
 </head>
 
 <body>
-    @if (Session::has('delete'))
-        <script>
-            toastr.options = {
-                "progressBar": true,
-            }
-            toastr.error("{{ Session::get('delete') }}");
-        </script>
-    @endif
     <div class="container" id="container">
         <div class="form-container sign-in">
             <form action="/PostLogin" method="post" role="form">
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 @csrf
                 <img src="{{ asset('/assets/img/i.png') }}" alt="main_logo">
                 <h1>Login</h1>

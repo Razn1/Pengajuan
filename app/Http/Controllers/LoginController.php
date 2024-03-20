@@ -16,7 +16,7 @@ class LoginController extends Controller
         if (Auth::attempt($request->only('username', 'password'))) {;
             return redirect('/dashboard')->with('message', 'Berhasil Login');
         } else {
-            return redirect('/login')->with('delete', 'username dan password salah');
+            return redirect('/login')->with('error', 'username dan password salah');
         };
     }
     public function logout()

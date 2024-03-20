@@ -16,7 +16,7 @@ class LoginsiswaController extends Controller
         if (Auth::attempt($request->only('username', 'password'))) {
             return redirect('/dashboard')->with('message', 'Berhasil Login');
         } else {
-            return redirect('/loginsiswa')->with('delete', 'Username dan Password Anda salah');
+            return redirect('/loginsiswa')->with('error', 'Username dan Password Anda salah');
         }
     }
     public function logout()

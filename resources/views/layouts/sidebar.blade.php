@@ -60,8 +60,7 @@
                         </ul>
                     </div>
                 </li>
-                <!-- Sisipkan kode yang sama untuk menu lainnya -->
-                <li class="nav-item">
+                <li class="nav-item ">
                     <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false"
                         href="#persetujuanMenu">
                         <span class="sidenav-mini-icon"> V </span>
@@ -70,19 +69,19 @@
                     <div class="collapse" id="persetujuanMenu" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="/persetujuan">
+                                <a class="nav-link " href="/persetujuan">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
-                                    <span class="sidenav-normal"> Data Persetujuan </span>
+                                    <span class="sidenav-normal"> Persetujuan </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/persetujuan/terima">
+                                <a class="nav-link " href="/persetujuan/terima">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Data Diterima </span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/persetujuan/tolak">
+                                <a class="nav-link " href="/persetujuan/tolak">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Data Ditolak </span>
                                 </a>
@@ -165,6 +164,22 @@
                         </div>
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#siswaMenu">
+                        <span class="sidenav-mini-icon"> V </span>
+                        <span class="sidenav-normal"> Siswa <b class="caret"></b></span>
+                    </a>
+                    <div class="collapse" id="siswaMenu" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/siswa">
+                                    <span class="sidenav-mini-icon text-xs"> V </span>
+                                    <span class="sidenav-normal"> Data Siswa </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false"

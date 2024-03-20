@@ -12,11 +12,11 @@
                                 <div class="table-responsive">
                                     <table class="table text-dark">
                                         <tr>
-                                            <th>ID :</th>
+                                            <th>NIS :</th>
                                             <td>
                                                 <hr class="vertical dark mt-0">
                                             </td>
-                                            <td>{{ Auth()->user()->id }}</td>
+                                            <td>{{ Auth()->user()->nis }}</td>
                                         </tr>
                                         <tr>
                                             <th>Nama :</th>

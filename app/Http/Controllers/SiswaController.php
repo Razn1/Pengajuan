@@ -15,7 +15,7 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        if (Auth()->user()->level != 'Admin') {
+        if (Auth()->user()->level == 'Siswa') {
             Auth::logout();
             return redirect('/login')->with('error', 'Anda Tidak Memiliki Akses');
         } else {

@@ -76,7 +76,7 @@ Route::get('/user/{id}/edit', [UserController::class, 'show'])->middleware('Admi
 Route::post('/user/{id}/update', [UserController::class, 'update'])->middleware('Admin');
 
 
-Route::get('/siswa', [SiswaController::class, 'index'])->middleware('Admin');
+Route::get('/siswa', [SiswaController::class, 'index'])->middleware('Pembimbing');
 
 
 Route::get('/prof', [UserController::class, 'prof'])->middleware('Pembimbing');

@@ -31,7 +31,7 @@
                                                     <td><a href="/">{{ $pg->proposal }}</a></td>
                                                     <td>{{ $pg->status }}</td>
                                                     <td>
-                                                        @if ($pengajuan->where('status', 'proses')->isNotEmpty())
+                                                        @if (Auth::user()->level == 'Pembimbing' && $pengajuan->where('status', 'proses')->isNotEmpty())
                                                             <button type="button" class="btn btn-primary btn-lg"
                                                                 data-bs-toggle="modal" data-bs-target="#modalId"
                                                                 onclick="prepareModal({{ $pg->id }},'{{ $pg->nis }}')">

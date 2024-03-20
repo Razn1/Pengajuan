@@ -9,13 +9,9 @@
                         <div class="row">
                             <div class="col-8 ">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">laporan </p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Judul Laporan </p>
                                     <h5 class="font-weight-bolder">
-                                        {{-- @if ($total->total_price == null)
-                    0
-                    @else
-                    Rp.{{number_format($total->total_price,2,',','.')}}
-                    @endif --}}
+                                        {{$pengajuan}}
                                     </h5>
                                 </div>
                             </div>
@@ -37,7 +33,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Proposal</p>
                                     <h5 class="font-weight-bolder">
-                                        {{-- {{$user}} --}}
+                                        {{$pengajuan}}
                                     </h5>
                                 </div>
                             </div>
@@ -60,7 +56,6 @@
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Diterima</p>
                                     <h5 class="font-weight-bolder">
                                         {{-- {{$sepatu}} --}}
-
                                     </h5>
                                 </div>
                             </div>

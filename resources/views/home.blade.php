@@ -19,7 +19,7 @@
             <div class="form-container">
                 <form action="/login" method="get" role="form">
                     @csrf
-                    <button class="btn mt-3">Admin</button>
+                    <button class="btn mt-3">User</button>
                 </form>
             </div>
             <div class="toggle-container">
