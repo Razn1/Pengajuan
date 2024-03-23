@@ -16,10 +16,10 @@ class Pembimbing
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth()->guest()){
-            redirect('/login');
+        if (Auth()->guest()) {
+            return redirect('/login');
         }
-        if(Auth()->User()->level === 'Siswa'){
+        if (Auth()->User()->level === 'Siswa') {
             abort('403');
         }
         return $next($request);

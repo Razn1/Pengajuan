@@ -7,8 +7,8 @@ use App\Models\Pengajuan;
 use App\Models\Persetujuan;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Auth\Events\Validated;
-use Illuminate\Contracts\Support\ValidatedData;
+// use Illuminate\Auth\Events\Validated;
+// use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Support\Facades\Auth;
 
 class PengajuanController extends Controller
@@ -52,14 +52,11 @@ class PengajuanController extends Controller
     {
         $userId = Auth()->User()->nis;
 
-        // Ambil pengajuan hanya untuk pengguna yang masuk saat ini
         $pengajuan = Pengajuan::where('nis', $userId)
             ->where('status', 'proses')
             ->get();
-    
-        // Jika ingin menyertakan informasi pengguna dalam tampilan juga
+
         $user = User::find($userId);
-    
         return view('pengajuan.indexsiswa', compact('pengajuan', 'user'));
     }
 
@@ -67,14 +64,11 @@ class PengajuanController extends Controller
     {
         $userId = Auth()->User()->nis;
 
-        // Ambil pengajuan hanya untuk pengguna yang masuk saat ini
         $pengajuan = Pengajuan::where('nis', $userId)
             ->where('status', 'diterima')
             ->get();
-    
-        // Jika ingin menyertakan informasi pengguna dalam tampilan juga
+
         $user = User::find($userId);
-    
         return view('pengajuan.indexsiswa', compact('pengajuan', 'user'));
     }
 
@@ -82,14 +76,11 @@ class PengajuanController extends Controller
     {
         $userId = Auth()->User()->nis;
 
-        // Ambil pengajuan hanya untuk pengguna yang masuk saat ini
         $pengajuan = Pengajuan::where('nis', $userId)
             ->where('status', 'ditolak')
             ->get();
-    
-        // Jika ingin menyertakan informasi pengguna dalam tampilan juga
+
         $user = User::find($userId);
-    
         return view('pengajuan.indexsiswa', compact('pengajuan', 'user'));
     }
 

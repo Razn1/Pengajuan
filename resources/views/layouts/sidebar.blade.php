@@ -219,6 +219,12 @@
                     <div class="collapse" id="persetujuanMenu" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
+                                <a class="nav-link " href="/persetujuan">
+                                    <span class="sidenav-mini-icon text-xs"> V </span>
+                                    <span class="sidenav-normal"> Persetujuan </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link " href="/persetujuan/terima">
                                     <span class="sidenav-mini-icon text-xs"> V </span>
                                     <span class="sidenav-normal"> Data Diterima </span>

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     /**
@@ -130,29 +131,29 @@ class UserController extends Controller
         return view('user.password',compact('user'));
     }
 
-    // public function changePassword(Request $request, $id)
-    // {
-    //     $validator = Validator::make($request->all(), [
-    //         'old_password' => 'required',
-    //         'new_password' => 'required',
-    //     ]);
+    public function changePassword(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'old_password' => 'required',
+            'new_password' => 'required',
+        ]);
 
-    //     if ($validator->fails()) {
-    //         return redirect()->back()->withErrors($validator)->withInput();
-    //     }
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
-    //     // Cari user berdasarkan ID
-    //     $user = User::findOrFail($id);
+        // Cari user berdasarkan ID
+        $user = User::findOrFail($id);
 
-    //     // Periksa apakah password lama cocok
-    //     if (!Hash::check($request->old_password, $user->password)) {
-    //         return redirect()->back()->with('error', 'Old password is incorrect');
-    //     }
+        // Periksa apakah password lama cocok
+        if (!Hash::check($request->old_password, $user->password)) {
+            return redirect()->back()->with('error', 'Old password is incorrect');
+        }
 
-    //     // Update password baru
-    //     $user->password = Hash::make($request->new_password);
-    //     $user->save();
+        // Update password baru
+        $user->password = Hash::make($request->new_password);
+        $user->save();
 
-    //     return redirect('/dashboard')->with('success', 'Password has been changed successfully');
-    // }
+        return redirect('/dashboard')->with('success', 'Password has been changed successfully');
+    }
 }

@@ -105,11 +105,14 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $siswa = User::find($id);
+        $siswa->delete();
+        return redirect('/logoutt')->with('delete', 'Data Telah Dihapus');
     }
 
     public function profile()
     {
-        return view('siswa.profile');
+        $siswa = User::all();
+        return view('siswa.profile', compact('siswa'));
     }
 }

@@ -55,7 +55,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Diterima</p>
                                     <h5 class="font-weight-bolder">
-                                        {{-- {{$sepatu}} --}}
+                                        {{$terima}}
                                     </h5>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Ditolak</p>
                                     <h5 class="font-weight-bolder">
-                                        {{-- {{$member}} --}}
+                                        {{$tolak}}
                                     </h5>
                                 </div>
                             </div>

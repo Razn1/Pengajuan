@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','User')
+@section('title','User Edit')
 @section('content')
 <br>
 <div class="content-wrapper">

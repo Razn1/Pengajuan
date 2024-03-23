@@ -16,11 +16,13 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth()->guest()){
-            redirect('/login');
+        if (Auth()->guest()) {
+            return redirect('/login');
         }
-        if(Auth()->User()->level !== 'Admin'){
+        if (Auth()->User()->level !== 'Admin') {
             abort('403');
+        } else {
+            return redirect('/logout');
         }
         return $next($request);
     }

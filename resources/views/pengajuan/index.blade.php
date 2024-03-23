@@ -13,7 +13,7 @@
                                 {{-- </div>
                         <div class="card-body bg-light"> --}}
                                 <div class="table-responsive">
-                                    <table class="table text-dark">
+                                    <table class="table text-dark" id="example">
                                         <thead>
                                             <tr align="center">
                                                 <th>Nis</th>
@@ -41,9 +41,7 @@
                                                         <a href="/pengajuan/{{ $pg->id }}/open" target="_blank"
                                                             class="btn btn-info">Open</a>
                                                     </td>
-                                                    <td>
-
-                                                    </td>
+                                                 
                                                 </tr>
                                             @endforeach
                                         </tbody>

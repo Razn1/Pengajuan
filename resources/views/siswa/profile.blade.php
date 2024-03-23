@@ -74,6 +74,8 @@
                                 <form action="/siswa/{{ Auth()->user()->id }}/update" method="post">
                                     @csrf
                                     <button type="submit" class="btn btn-primary">Edit Akun</button>
+                                    <a href="/siswa/{{ Auth()->User()->id }}/delete" class="btn btn-outline-danger"
+                                        onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ini?')">Delete</a>
                                 </form>
                             </div>
                         </div>

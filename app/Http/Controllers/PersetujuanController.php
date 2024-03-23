@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Persetujuan;
-use App\Models\User;
-use App\Models\Siswa;
-use App\Models\Pengajuan;
+// use App\Models\User;
+// use App\Models\Siswa;
+// use App\Models\Pengajuan;
 use Illuminate\Support\Facades\Auth;
 
 class PersetujuanController extends Controller
@@ -23,7 +23,7 @@ class PersetujuanController extends Controller
         // $siswa = Siswa::all();
         if (Auth()->user()->level === 'Siswa') {
             Auth::logout();
-            return redirect('/login')->with('error', 'Anda Tidak Memiliki Akses');
+            return redirect('/loginsiswa')->with('error', 'Anda Tidak Memiliki Akses');
         } else {
             $persetujuan = Persetujuan::all();
             return view('persetujuan.index', compact(['persetujuan']));
@@ -32,16 +32,26 @@ class PersetujuanController extends Controller
 
     public function terima()
     {
+        if (Auth()->user()->level === 'Siswa') {
+            Auth::logout();
+            return redirect('/loginsiswa')->with('error', 'Anda Tidak Memiliki Akses');
+        } else {
         $persetujuan = Persetujuan::where('status', 'diterima')
             ->get();
         return view('persetujuan.index', compact(['persetujuan']));
+        }
     }
 
     public function tolak()
     {
+        if (Auth()->user()->level === 'Siswa') {
+            Auth::logout();
+            return redirect('/login')->with('error', 'Anda Tidak Memiliki Akses');
+        } else {
         $persetujuan = Persetujuan::where('status', 'ditolak')
             ->get();
         return view('persetujuan.index', compact(['persetujuan']));
+        }
     }
 
     /**

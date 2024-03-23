@@ -91,14 +91,15 @@ Route::get('/persetujuan/terima', [PersetujuanController::class, 'terima'])->mid
 Route::get('/persetujuan/tolak', [PersetujuanController::class, 'tolak'])->middleware('Pembimbing');
 
 
-// Route::get('/user/change-password/{id}',[UserController::class,'password'])->middleware('Admin');
-// Route::post('/user/change/{id}',[UserController::class,'changePassword'])->name('user.change.password');
+Route::get('/user/change-password/{id}',[UserController::class,'password'])->middleware('auth');
+Route::post('/user/change/{id}',[UserController::class,'changePassword'])->name('user.change.password');
 
 
 //Khusus Siswa
 Route::get('/profile', [SiswaController::class, 'profile'])->middleware('Siswa');
 Route::post('/siswa/{id}/update', [SiswaController::class, 'show'])->middleware('Siswa');
 Route::post('/siswa/{id}/simpan', [SiswaController::class, 'update'])->middleware('Siswa');
+Route::get('/siswa/{id}/delete', [SiswaController::class, 'destroy'])->middleware('Siswa');
 
 
 Route::get('/mengajukan', [PengajuanController::class, 'create'])->middleware('Siswa');

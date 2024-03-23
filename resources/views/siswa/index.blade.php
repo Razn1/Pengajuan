@@ -11,7 +11,7 @@
                             <div class="card-header bg-white">
                                 <h2>Data Siswa</h2>
                                 <div class="table-responsive">
-                                    <table class="table text-dark">
+                                    <table class="table text-dark" id="example">
                                         <thead>
                                             <tr align="center">
                                                 <th>NIS</th>

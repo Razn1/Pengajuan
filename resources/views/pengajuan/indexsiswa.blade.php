@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'PengajuanSiswa')
+@section('title', 'Pengajuan Siswa')
 @section('content')
     <br>
     <div class="content-wrapper">
@@ -13,7 +13,7 @@
                                 {{-- </div>
                         <div class="card-body bg-light"> --}}
                                 <div class="table-responsive">
-                                    <table class="table text-dark">
+                                    <table class="table text-dark" id="example">
                                         <thead>
                                             <tr align="center">
                                                 <th>Nis</th>
