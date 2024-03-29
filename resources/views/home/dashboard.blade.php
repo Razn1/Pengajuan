@@ -9,16 +9,17 @@
                         <div class="row">
                             <div class="col-8 ">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Judul Laporan </p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Laporan </p>
                                     <h5 class="font-weight-bolder">
-                                        {{$pengajuan}}
+                                        {{ $laporan }}
                                     </h5>
                                 </div>
                             </div>
                             <div class="col-4 text-end">
                                 <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                    <a href="/transaksi" class="small-box-footer"><i
-                                            class="ni ni-archive-2 text-lg opacity-10" aria-hidden="true"></i></a>
+                                    <a href="/transaksi" class="small-box-footer">
+                                        <i class="ni ni-archive-2 text-lg opacity-10" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -33,7 +34,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Proposal</p>
                                     <h5 class="font-weight-bolder">
-                                        {{$pengajuan}}
+                                        {{ $proposal }}
                                     </h5>
                                 </div>
                             </div>
@@ -55,7 +56,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Diterima</p>
                                     <h5 class="font-weight-bolder">
-                                        {{$terima}}
+                                        {{ $terima }}
                                     </h5>
                                 </div>
                             </div>
@@ -77,7 +78,7 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Ditolak</p>
                                     <h5 class="font-weight-bolder">
-                                        {{$tolak}}
+                                        {{ $tolak }}
                                     </h5>
                                 </div>
                             </div>

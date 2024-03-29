@@ -109,7 +109,7 @@ class PengajuanController extends Controller
     {
         $validateData = $request->validate([
             'judul_laporan' => 'required',
-            'proposal' => 'required|max:2048',
+            'proposal' => 'required|max:10000',
         ]);
 
         $berkas = $request->file('proposal');
@@ -191,7 +191,7 @@ class PengajuanController extends Controller
     public function open($id)
     {
         $pengajuan = Pengajuan::find($id);
-        return view('pengajuan.open', compact('pengajuan',));
+        return view('pengajuan.open', compact('pengajuan'));
     }
 
     public function eksekusi(Request $request)

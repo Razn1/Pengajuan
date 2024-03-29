@@ -33,9 +33,12 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="card-footer text-center"> <!-- Centering the button -->
+                        <div class="card-footer text-center">
                             <a class="btn btn-primary" href="/user/change-password/{{Auth()->User()->id}}">
                                 Change Password
+                            </a>
+                            <a class="btn btn-waring" href="/user/{{Auth()->User()->id}}/edit">
+                                Edit
                             </a>
                         </div>
                     </div>

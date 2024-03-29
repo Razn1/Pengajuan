@@ -17,7 +17,7 @@
                     <a class="nav-link active" href="/dashboard">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                            <i class="fa fa-home text-primary text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
@@ -60,6 +60,22 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#laporanMenu">
+                        <span class="sidenav-mini-icon"> V </span>
+                        <span class="sidenav-normal"> Laporan <b class="caret"></b></span>
+                    </a>
+                    <div class="collapse" id="laporanMenu" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/laporan">
+                                    <span class="sidenav-mini-icon text-xs"> V </span>
+                                    <span class="sidenav-normal"> Data Laporan </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="nav-item ">
                     <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false"
                         href="#persetujuanMenu">
@@ -90,7 +106,8 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#pengajuanMenu">
+                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false"
+                        href="#pengajuanMenu">
                         <span class="sidenav-mini-icon"> V </span>
                         <span class="sidenav-normal"> Pengajuan <b class="caret"></b></span>
                     </a>
@@ -124,7 +141,7 @@
                     <a class="nav-link " href="/prof">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+                            <i class="fa fa-user text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Profile</span>
                     </a>
@@ -133,7 +150,7 @@
                     <a class="nav-link " href="/logoutt">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa fa-sign-out text-warning text-sm opacity-10"></i>
+                            <i class="fa fa-sign-out text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Logout</span>
                     </a>
@@ -160,10 +177,27 @@
                     <a class="nav-link active" href="/dashboard">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                            <i class="fa fa-home text-primary text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false"
+                        href="#laporanMenu">
+                        <span class="sidenav-mini-icon"> V </span>
+                        <span class="sidenav-normal"> Laporan <b class="caret"></b></span>
+                    </a>
+                    <div class="collapse" id="laporanMenu" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/laporan">
+                                    <span class="sidenav-mini-icon text-xs"> V </span>
+                                    <span class="sidenav-normal"> Data Laporan </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#siswaMenu">
@@ -246,7 +280,7 @@
                     <a class="nav-link " href="/prof">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+                            <i class="fa fa-user text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Profile</span>
                     </a>
@@ -255,7 +289,7 @@
                     <a class="nav-link " href="/logoutt">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+                            <i class="fa fa-sign-out text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Logout</span>
                     </a>
@@ -282,7 +316,7 @@
                     <a class="nav-link active" href="/dashboard">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                            <i class="fa fa-home text-primary text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
@@ -291,11 +325,30 @@
                     <a class="nav-link " href="/mengajukan">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                            <i class="fa fa-plus text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Mengajukan Data</span>
                     </a>
                 </li>
+                @if (App\Models\Pengajuan::where('status', 'Diterima')->exists())
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false"
+                            href="#laporanMenu">
+                            <span class="sidenav-mini-icon"> V </span>
+                            <span class="sidenav-normal"> Laporan <b class="caret"></b></span>
+                        </a>
+                        <div class="collapse" id="laporanMenu" style="">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/laporan">
+                                        <span class="sidenav-mini-icon text-xs"> V </span>
+                                        <span class="sidenav-normal"> Data Laporan </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                @endif
                 <li class="nav-item ">
                     <a class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false"
                         href="#vrExamples">
@@ -332,7 +385,7 @@
                     <a class="nav-link " href="/profile">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+                            <i class="fa fa-user text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Profile</span>
                     </a>
@@ -341,7 +394,7 @@
                     <a class="nav-link " href="/logoutt">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+                            <i class="fa fa-sign-out text-success text-sm opacity-10"></i>
                         </div>
                         <span class="nav-link-text ms-1">Logout</span>
                     </a>

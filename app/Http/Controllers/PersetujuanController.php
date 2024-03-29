@@ -21,13 +21,13 @@ class PersetujuanController extends Controller
         // $user = User::all();
         // $pengajuan = Pengajuan::all();
         // $siswa = Siswa::all();
-        if (Auth()->user()->level === 'Siswa') {
-            Auth::logout();
-            return redirect('/loginsiswa')->with('error', 'Anda Tidak Memiliki Akses');
-        } else {
-            $persetujuan = Persetujuan::all();
-            return view('persetujuan.index', compact(['persetujuan']));
-        }
+        // if (Auth()->user()->level === 'Siswa') {
+        //     Auth::logout();
+        //     return redirect('/loginsiswa')->with('error', 'Anda Tidak Memiliki Akses');
+        // } else {
+        $persetujuan = Persetujuan::all();
+        return view('persetujuan.index', compact(['persetujuan']));
+        // }
     }
 
     public function terima()
@@ -36,9 +36,9 @@ class PersetujuanController extends Controller
             Auth::logout();
             return redirect('/loginsiswa')->with('error', 'Anda Tidak Memiliki Akses');
         } else {
-        $persetujuan = Persetujuan::where('status', 'diterima')
-            ->get();
-        return view('persetujuan.index', compact(['persetujuan']));
+            $persetujuan = Persetujuan::where('status', 'diterima')
+                ->get();
+            return view('persetujuan.index', compact(['persetujuan']));
         }
     }
 
@@ -48,10 +48,16 @@ class PersetujuanController extends Controller
             Auth::logout();
             return redirect('/login')->with('error', 'Anda Tidak Memiliki Akses');
         } else {
-        $persetujuan = Persetujuan::where('status', 'ditolak')
-            ->get();
-        return view('persetujuan.index', compact(['persetujuan']));
+            $persetujuan = Persetujuan::where('status', 'ditolak')
+                ->get();
+            return view('persetujuan.index', compact(['persetujuan']));
         }
+    }
+
+    public function cetak()
+    {
+        $persetujuan = Persetujuan::all();
+        return view('persetujuan.cetak',compact('persetujuan'));
     }
 
     /**

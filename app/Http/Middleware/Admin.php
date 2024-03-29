@@ -19,10 +19,8 @@ class Admin
         if (Auth()->guest()) {
             return redirect('/login');
         }
-        if (Auth()->User()->level !== 'Admin') {
+        if (Auth()->User()->level != 'Admin') {
             abort('403');
-        } else {
-            return redirect('/logout');
         }
         return $next($request);
     }

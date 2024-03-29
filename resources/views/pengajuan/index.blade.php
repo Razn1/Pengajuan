@@ -28,18 +28,27 @@
                                                 <tr align="center">
                                                     <td>{{ $pg->nis }}</td>
                                                     <td>{{ $pg->judul_laporan }}</td>
-                                                    <td><a href="/">{{ $pg->proposal }}</a></td>
-                                                    <td>{{ $pg->status }}</td>
+                                                    <td><a href="/pengajuan/{{ $pg->id }}/open">{{ $pg->proposal }}</a></td>
+                                                    <td>
+                                                        @if($pg->status == 'diterima')
+                                                            <a class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                        @elseif($pg->status == 'ditolak')
+                                                            <a class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                        @else
+                                                            <a class="btn btn-primary"><i class="fa fa-spinner" aria-hidden="true"></i></a>
+                                                        @endif
+                                                    </td>                                                    
                                                     <td>
                                                         @if (Auth::user()->level == 'Pembimbing' && $pengajuan->where('status', 'proses')->isNotEmpty())
-                                                            <button type="button" class="btn btn-primary btn-lg"
+                                                            <button type="button" class="btn btn-primary"
                                                                 data-bs-toggle="modal" data-bs-target="#modalId"
                                                                 onclick="prepareModal({{ $pg->id }},'{{ $pg->nis }}')">
-                                                                Eksekusi
+                                                                <i class="fa fa-check" aria-hidden="true"></i>
                                                             </button>
                                                         @endif
                                                         <a href="/pengajuan/{{ $pg->id }}/open" target="_blank"
-                                                            class="btn btn-info">Open</a>
+                                                            class="btn btn-info"><i class="fa fa-folder-open"
+                                                            aria-hidden="true"></i></a>
                                                     </td>
                                                  
                                                 </tr>
@@ -89,10 +98,12 @@
                             <label for="" class="form-label">Pembimbing</label>
                             <select name="id_user" class="form-control" id="">
                                 @foreach ($user as $user)
-                                    <option value="{{ $user->id }}">{{ Auth()->user()->nama }}</option>
+                                    @if($user->id === Auth()->user()->id)
+                                        <option value="{{ $user->id }}">{{ Auth()->user()->nama }}</option>
+                                    @endif
                                 @endforeach
                             </select>
-                        </div>
+                        </div>                        
 
                         <div class="mb-3">
                             <label for="" class="form-label">Status</label>

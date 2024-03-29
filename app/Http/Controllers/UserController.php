@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UploadLaporan;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
 class UserController extends Controller
 {
     /**
@@ -16,14 +18,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        if (Auth()->user()->level != 'Admin') {
-            Auth::logout();
-            return redirect('/login')->with('error', 'Anda Tidak Memiliki Akses');
-        } else {
-            $user = User::whereIn('level',['Pembimbing','Admin'])
-                        ->get();
-            return view('user.index', compact(['user']));
-        }
+        // if (Auth()->user()->level != 'Admin') {
+        //     Auth::logout();
+        //     return redirect('/login')->with('error', 'Anda Tidak Memiliki Akses');
+        // } else {
+        $user = User::whereIn('level', ['Pembimbing', 'Admin'])
+            ->get();
+        return view('user.index', compact(['user']));
+        // }
     }
 
     /**
@@ -78,9 +80,19 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'username' => 'required'
+        ]);
+        $user = User::find($id);
+        $user->update([
+            'nama' => $request->nama,
+            'username' => $request->username,
+            $request->except(['_token'])
+        ]);
+        return redirect('/prof')->with('update', 'Data Berhasil Diupdate');
     }
 
     /**
@@ -107,6 +119,7 @@ class UserController extends Controller
         return redirect('/user')->with('update', 'Data Berhasil Diupdate');
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -128,7 +141,7 @@ class UserController extends Controller
     public function password($id)
     {
         $user = User::find($id);
-        return view('user.password',compact('user'));
+        return view('user.password', compact('user'));
     }
 
     public function changePassword(Request $request, $id)
@@ -154,6 +167,6 @@ class UserController extends Controller
         $user->password = Hash::make($request->new_password);
         $user->save();
 
-        return redirect('/dashboard')->with('success', 'Password has been changed successfully');
+        return redirect('/prof')->with('success', 'Password has been changed successfully');
     }
 }
