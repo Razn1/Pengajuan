@@ -50,15 +50,15 @@ class PengajuanController extends Controller
     //Khusus Siswa
     public function indexsiswa()
     {
-        $userId = Auth()->User()->nis;
-
+        $userId = Auth()->user()->nis;
+    
         $pengajuan = Pengajuan::where('nis', $userId)
             ->where('status', 'proses')
-            ->get();
-
+            ->paginate(10);
+    
         $user = User::find($userId);
         return view('pengajuan.indexsiswa', compact('pengajuan', 'user'));
-    }
+    }    
 
     public function diterima()
     {

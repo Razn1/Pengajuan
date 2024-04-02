@@ -34,10 +34,11 @@
                                                     <td>{{ $s->tempat_pkl }}</td>
                                                     <td>{{ $s->no_telp }}</td>
                                                     <td>{{ $s->username }}</td>
-                                                    <td>
+                                                    <td><a href="/siswa/{{ $s->id }}/ed"
+                                                        class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                         <a href="/user/{{ $s->id }}/delete"
-                                                            class="btn btn-outline-danger"
-                                                            onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ini?')">Delete</a>
+                                                            class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ini?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

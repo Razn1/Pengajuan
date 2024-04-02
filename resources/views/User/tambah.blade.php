@@ -49,7 +49,7 @@
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-info text-dark">Save</button>
-                                <a href="/user" type="reset" class="btn btn-secondary text-dark">cancel</a>
+                                <a href="/user" type="reset" class="btn btn-secondary text-dark">Cancel</a>
                             </form>
                         </div>
                     </div>

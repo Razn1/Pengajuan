@@ -17,6 +17,25 @@
     <link rel="stylesheet" href="{{ asset('assets/css/glightbox.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
 
+    <style>
+        .sticky #log img {
+            content: url('{{ asset('assets/img/i.png') }}');
+        }
+
+        .navbar-area #log img {
+            content: url('{{ asset('assets/img/i.png') }}');
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -47,7 +66,7 @@
                     <div class="nav-inner">
                         <!-- Start Navbar -->
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.html">
+                            <a id="log" class="navbar-brand" href="index.html">
                                 <img src="{{ asset('assets/img/i.png') }}" alt="Logo">
                             </a>
                             <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
@@ -58,32 +77,6 @@
                                 <span class="toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                                {{-- <li class="nav-item">
-                                    <a href="#features" class="page-scroll"
-                                    aria-label="Toggle navigation">Features</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:void(0)" aria-label="Toggle navigation">Overview</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#pricing" class="page-scroll"
-                                    aria-label="Toggle navigation">Pricing</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:void(0)" aria-label="Toggle navigation">Team</a>
-                                </li> --}}
-                                {{-- <li class="nav-item">
-                                    <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                    data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">Blog</a>
-                                    <ul class="sub-menu collapse" id="submenu-1-4">
-                                        <li class="nav-item"><a href="javascript:void(0)">Blog Grid Sidebar</a>
-                                        </li>
-                                        <li class="nav-item"><a href="javascript:void(0)">Blog Single</a></li>
-                                        <li class="nav-item"><a href="javascript:void(0)">Blog Single
-                                            Sibebar</a></li>
-                                        </ul>
-                                    </li> --}}
                             </div> <!-- navbar collapse -->
                             <div class="button add-list-button">
                                 <ul id="nav" class="navbar-nav ms-auto">
@@ -112,18 +105,20 @@
                 <div class="col-lg-5 col-md-12 col-12">
                     <div class="hero-content">
                         <h1 class="wow fadeInLeft" data-wow-delay=".4s">A powerful app for your business.</h1>
-                        <p class="wow fadeInLeft" data-wow-delay=".6s">From open source to pro services, Piqes helps you
+                        <p class="wow fadeInLeft" data-wow-delay=".6s">From open source to pro services, Piqes helps
+                            you
                             to build, deploy, test, and monitor apps.</p>
                         <div class="button wow fadeInLeft" data-wow-delay=".8s">
                             <a href="javascript:void(0)" class="btn"><i class="lni lni-apple"></i> App Store</a>
-                            <a href="javascript:void(0)" class="btn btn-alt"><i class="lni lni-play-store"></i> Google
+                            <a href="javascript:void(0)" class="btn btn-alt"><i class="lni lni-play-store"></i>
+                                Google
                                 Play</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-12 col-12">
                     <div class="hero-image wow fadeInRight" data-wow-delay=".4s">
-                        <img src="{{ asset('assets/img/dashboard.png') }}" alt="#">
+                        <img src="{{ asset('assets/img/marhas.png') }}" alt="#">
                     </div>
                 </div>
             </div>
@@ -144,7 +139,7 @@
                         <div class="single-footer f-about">
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="{{ asset('assets/images/logo/white-logo.svg') }}" alt="#">
+                                    <img src="{{ asset('assets/img/marhas.png') }}" alt="#">
                                 </a>
                             </div>
                             <p>Making the world a better place through constructing elegant hierarchies.</p>

@@ -10,7 +10,7 @@
                         <div class="card">
                             <div class="card-header bg-white">
                                 <h2>Data User</h2>
-                                
+
                                 {{-- </div>
                         <div class="card-body bg-gradient-secondary"> --}}
                                 <div class="table-responsive">
@@ -33,10 +33,10 @@
                                                     <td>{{ $u->level }}</td>
                                                     <td>
                                                         <a href="/user/{{ $u->id }}/edit"
-                                                            class="btn btn-outline-warning">Edit</a>
-                                                        <a href="/user/{{ $u->id }}/delete"
-                                                            class="btn btn-outline-danger"
-                                                            onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ini?')">Delete</a>
+                                                            class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                        <a href="/user/{{ $u->id }}/delete" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ini?')"><i
+                                                                class="fa fa-trash" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

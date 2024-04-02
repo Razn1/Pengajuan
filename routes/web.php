@@ -79,7 +79,8 @@ Route::post('/user/{id}/up', [UserController::class, 'edit'])->middleware('Pembi
 
 
 Route::get('/siswa', [SiswaController::class, 'index'])->middleware('Pembimbing');
-
+Route::get('/siswa/{id}/ed', [SiswaController::class, 'edit'])->middleware('Pembimbing');
+Route::post('/siswa/{id}/up', [SiswaController::class, 'up'])->middleware('Pembimbing');
 
 Route::get('/prof', [UserController::class, 'prof'])->middleware('Pembimbing');
 Route::get('/pengajuan', [PengajuanController::class, 'index'])->middleware('Pembimbing');
@@ -103,7 +104,7 @@ Route::post('/user/change/{id}',[UserController::class,'changePassword'])->name(
 
 //Khusus Siswa
 Route::get('/profile', [SiswaController::class, 'profile'])->middleware('Siswa');
-Route::post('/siswa/{id}/update', [SiswaController::class, 'show'])->middleware('Siswa');
+Route::get('/siswa/{id}/update', [SiswaController::class, 'show'])->middleware('Siswa');
 Route::post('/siswa/{id}/simpan', [SiswaController::class, 'update'])->middleware('Siswa');
 Route::get('/siswa/{id}/delete', [SiswaController::class, 'destroy'])->middleware('Siswa');
 

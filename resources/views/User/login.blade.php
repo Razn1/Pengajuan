@@ -25,7 +25,7 @@
                 @csrf
                 <img src="{{ asset('/assets/img/i.png') }}" alt="main_logo">
                 <h1>Login</h1>
-                <span>Use your username password</span>
+                {{-- <span>Use your username password</span> --}}
                 <input type="username" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <button class="btn mt-3">Login</button>

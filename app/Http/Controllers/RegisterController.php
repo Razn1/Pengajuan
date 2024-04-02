@@ -17,8 +17,8 @@ class RegisterController extends Controller
     {
         $validateData = $request->validate([
             'nis' => 'required|max:11',
-            'username' => 'required',
-            'password' => 'required'
+            'username' => 'required|unique:users',
+            'password' => 'required|min:5|max:20'
         ]);
         User::create([
             'nis' => $request->nis,

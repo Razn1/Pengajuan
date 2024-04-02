@@ -67,8 +67,27 @@ class SiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
+    {   
+        $user = User::find($id);
+        return view('siswa.editpass', compact(['user']));
+    }
+    public function up(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $validateData = $request->validate([
+            'password' => 'required',
+        ]);
+
+        $user->update([
+            'password' => bcrypt($request->password),
+            $request->except(['_token'])
+        ]);
+        
+        return redirect('/siswa')->with('update', 'Data Berhasil Diupdate');
+        // if ($request->filled('password')){
+        //     $user -> password = bcrypt($request->password);
+        // }
     }
 
     /**

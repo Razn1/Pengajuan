@@ -13,7 +13,7 @@
                                 {{-- </div>
                         <div class="card-body bg-light"> --}}
                                 <div class="table-responsive">
-                                    <table class="table text-dark" id="example">
+                                    <table class="table text-dark">
                                         <thead>
                                             <tr align="center">
                                                 <th>Nis</th>
@@ -37,22 +37,17 @@
                                                         @else
                                                             <a class="btn btn-primary"><i class="fa fa-spinner" aria-hidden="true"></i></a>
                                                         @endif
-                                                    </td>                        
-                                                    {{-- <td>
-                                                        <form class="background bg-success"> terima
-                                                        </form>
-                                                        <form class="background bg-danger">tolak</form>
-                                                        
-                                                    </td> --}}
+                                                    </td>
                                                     <td>
-                                                        <a href="/pengajuan/{{ $pg->id }}/open" target="_blank"
-                                                            class="btn btn-info"><i class="fa fa-folder-open"
-                                                            aria-hidden="true"></i></a>
+                                                        <a href="/pengajuan/{{ $pg->id }}/open" target="_blank" class="btn btn-info"><i class="fa fa-folder-open" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    
+                                    {{ $pengajuan->links() }}
+                                    
                                 </div>
                             </div>
                             <div class="card-footer">

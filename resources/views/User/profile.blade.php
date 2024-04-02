@@ -37,8 +37,8 @@
                             <a class="btn btn-primary" href="/user/change-password/{{Auth()->User()->id}}">
                                 Change Password
                             </a>
-                            <a class="btn btn-waring" href="/user/{{Auth()->User()->id}}/edit">
-                                Edit
+                            <a class="btn btn-warning" href="/user/{{Auth()->User()->id}}/edit">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
