@@ -45,9 +45,6 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    
-                                    {{ $pengajuan->links() }}
-                                    
                                 </div>
                             </div>
                             <div class="card-footer">

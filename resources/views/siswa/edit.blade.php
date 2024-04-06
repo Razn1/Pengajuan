@@ -18,7 +18,7 @@
                                         <label for="" class="form-label">Nama</label>
                                         <input type="text" name="nama" value="{{ $user->nama }}" id=""
                                             class="form-control @error('nama') is-invalid @enderror"
-                                            aria-describedby="helpId">
+                                            aria-describedby="helpId" required>
                                         @error('nama')
                                             <div class="invalidate-feedback">
                                                 {{ $message }}
@@ -49,7 +49,7 @@
                                         <label for="" class="form-label">Tempat PKL</label>
                                         <input type="text" name="tempat_pkl" value="{{ $user->tempat_pkl }}"
                                             id="" class="form-control @error('username') is-invalid @enderror"
-                                            aria-describedby="helpId">
+                                            aria-describedby="helpId" required>
                                         @error('tempat_pkl')
                                             <div class="invalidate-feedback">
                                                 {{ $message }}
@@ -60,8 +60,19 @@
                                         <label for="" class="form-label">Nomor Telepon</label>
                                         <input type="number" name="no_telp" value="{{ $user->no_telp }}" id=""
                                             class="form-control @error('username') is-invalid @enderror"
-                                            aria-describedby="helpId">
+                                            aria-describedby="helpId" required>
                                         @error('no_telp')
+                                            <div class="invalidate-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="form-label">Username</label>
+                                        <input type="text" name="username" value="{{ $user->username }}" id=""
+                                            class="form-control @error('username') is-invalid @enderror"
+                                            aria-describedby="helpId" required>
+                                        @error('username')
                                             <div class="invalidate-feedback">
                                                 {{ $message }}
                                             </div>

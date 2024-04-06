@@ -32,8 +32,8 @@
                                                     <td>{{ $u->username }}</td>
                                                     <td>{{ $u->level }}</td>
                                                     <td>
-                                                        <a href="/user/{{ $u->id }}/edit"
-                                                            class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                        <a href="/user/{{ $u->id }}/edit" class="btn btn-warning"><i
+                                                                class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                         <a href="/user/{{ $u->id }}/delete" class="btn btn-danger"
                                                             onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ini?')"><i
                                                                 class="fa fa-trash" aria-hidden="true"></i></a>

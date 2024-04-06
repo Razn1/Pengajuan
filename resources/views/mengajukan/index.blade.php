@@ -17,7 +17,7 @@
                                     <div class="form-group">
                                         <label for="">Nis</label>
                                         <input type="number" name="nis" class="form-control"
-                                            value="{{ Auth()->user()->nis }}">
+                                            value="{{ Auth()->user()->nis }}" required>
                                         {{-- <select name="nis" id="" class="form-control">
                                             @foreach ($siswa as $s)
                                                 <option value="{{ $s->nis }}">{{Auth()->user()->nis }}</option>
@@ -29,7 +29,7 @@
                                         <input type="text" name="judul_laporan" id=""
                                             class="form-control @error('judul_laporan') is-invalid @enderror"
                                             value="{{ old('judul_laporan') }}" placeholder="Masukan Judul Laporan"
-                                            aria-describedby="helpId">
+                                            aria-describedby="helpId" required>
                                         @error('judul_laporan')
                                             <div class="invalidate-feedback">
                                                 {{ $message }}

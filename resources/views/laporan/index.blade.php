@@ -17,7 +17,7 @@
                                     </button>
                                 @endif
                                 <div class="table-responsive">
-                                    <table class="table text-dark" id="example">
+                                    <table class="table text-dark" id="">
                                         <thead>
                                             <tr align="center">
                                                 <th>Nis</th>
@@ -63,7 +63,7 @@
 
     <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
         aria-labelledby="modalTitleId" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-l" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitleId">
@@ -83,13 +83,13 @@
 
                         <div class="mb-3">
                             <label for="laporan">Judul</label>
-                            <input type="text" class="form-control" name="judul" value="" />
+                            <input type="text" class="form-control" name="judul" value="" required>
                         </div>
 
                         <div class="form-group">
                             <label for="laporan">Laporan</label>
                             <input type="file" class="form-control @error('laporan') is-invalid @enderror"
-                                value="{{ old('laporan') }}" accept=".pdf" name="laporan" id="laporan">
+                                value="{{ old('laporan') }}" accept=".pdf" name="laporan" id="laporan" required>
                             @error('laporan')
                                 <div class="invalidate-feedback">
                                     {{ $message }}

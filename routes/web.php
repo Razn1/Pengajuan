@@ -54,18 +54,6 @@ Route::post('/PostLoginn', [LoginsiswaController::class, 'loginsis']);
 Route::get('/logoutt', [LoginsiswaController::class, 'logout']);
 
 
-// route::get('/send-email',function(){
-//     $data = [
-//         'name' => 'test',
-//         'body' => 'test'
-//     ];
-
-//     Mail::to('alfarrel218@gmail.com')->send(new SendEmail($data));
-
-//     dd("Email Berhasil Dikirim");
-// });
-
-
 //Admin dan Pembimbing
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
@@ -74,8 +62,7 @@ Route::get('/user/tambah', [UserController::class, 'create'])->middleware('Admin
 Route::post('/user/save', [UserController::class, 'store'])->middleware('Admin');
 Route::get('/user/{id}/delete', [UserController::class, 'destroy'])->middleware('Admin');
 Route::get('/user/{id}/edit', [UserController::class, 'show'])->middleware('Pembimbing');
-Route::post('/user/{id}/update', [UserController::class, 'update'])->middleware('Admin');
-Route::post('/user/{id}/up', [UserController::class, 'edit'])->middleware('Pembimbing');
+Route::post('/user/{id}/update', [UserController::class, 'update'])->middleware('Pembimbing');
 
 
 Route::get('/siswa', [SiswaController::class, 'index'])->middleware('Pembimbing');
@@ -98,19 +85,19 @@ Route::get('/persetujuan/terima', [PersetujuanController::class, 'terima'])->mid
 Route::get('/persetujuan/tolak', [PersetujuanController::class, 'tolak'])->middleware('Pembimbing');
 
 
-Route::get('/user/change-password/{id}',[UserController::class,'password'])->middleware('auth');
-Route::post('/user/change/{id}',[UserController::class,'changePassword'])->name('user.change.password');
+Route::get('/user/change-password/{id}', [UserController::class,'password'])->middleware('auth');
+Route::post('/user/change/{id}', [UserController::class,'changePassword'])->name('user.change.password');
 
 
 //Khusus Siswa
 Route::get('/profile', [SiswaController::class, 'profile'])->middleware('Siswa');
-Route::get('/siswa/{id}/update', [SiswaController::class, 'show'])->middleware('Siswa');
+Route::get('/siswa/{id}/u', [SiswaController::class, 'show'])->middleware('Siswa');
 Route::post('/siswa/{id}/simpan', [SiswaController::class, 'update'])->middleware('Siswa');
 Route::get('/siswa/{id}/delete', [SiswaController::class, 'destroy'])->middleware('Siswa');
 
 
-Route::get('/siswa/change-password/{id}',[SiswaController::class,'password'])->middleware('auth');
-Route::post('/siswa/change/{id}',[SiswaController::class,'changePassword'])->name('siswa.change.password');
+Route::get('/siswa/change-password/{id}', [SiswaController::class,'password'])->middleware('auth');
+Route::post('/siswa/change/{id}', [SiswaController::class,'changePassword'])->name('siswa.change.password');
 
 
 Route::post('/laporan/tambah', [UploadLaporanController::class, 'store'])->middleware('Siswa');
@@ -129,9 +116,3 @@ Route::post('/pengajuan/simpan', [PengajuanController::class, 'store'])->middlew
 Route::get('/pengajuan/tambah', [PengajuanController::class, 'create'])->middleware('Siswa');
 Route::get('/pengajuan/{id}/open', [PengajuanController::class, 'open'])->middleware('auth');
 
-
-// Route::get('/persetujuan/tambah', [PersetujuanController::class, 'create']);
-// Route::post('/persetujuan/simpan', [PersetujuanController::class, 'store']);
-// Route::get('/persetujuan/{id}/delete', [PersetujuanController::class, 'destroy']);
-// Route::get('/persetujuan/{id}/edit', [PersetujuanController::class, 'show']);
-// Route::post('/persetujuan/{id}/update', [PersetujuanController::class, 'update']);

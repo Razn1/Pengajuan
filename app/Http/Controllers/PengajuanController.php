@@ -92,7 +92,6 @@ class PengajuanController extends Controller
     //Khusus Siswa
     public function create()
     {
-
         $siswa = User::where('level', 'Siswa')
             ->get();
         return view('mengajukan.index', compact(['siswa'],));
@@ -109,7 +108,7 @@ class PengajuanController extends Controller
     {
         $validateData = $request->validate([
             'judul_laporan' => 'required',
-            'proposal' => 'required|max:10000',
+            'proposal' => 'required|max:5000|mimes:pdf',
         ]);
 
         $berkas = $request->file('proposal');
@@ -139,9 +138,7 @@ class PengajuanController extends Controller
      */
     public function show($id)
     {
-        $pengajuan = Pengajuan::find($id);
-        $siswa = User::all();
-        return view('pengajuan.edit', compact(['pengajuan'], 'siswa'));
+        
     }
 
     /**
@@ -164,15 +161,7 @@ class PengajuanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pengajuan = Pengajuan::find($id);
-        $pengajuan->update([
-            'nis' => $request->nis,
-            'judul_laporan' => $request->judul_laporan,
-            'proposal' => $request->proposal,
-            'tanggal' => $request->tanggal,
-            $request->except(['_token']),
-        ]);
-        return redirect('/pengajuan')->with('update', 'data telah diupdate');
+
     }
 
     /**
@@ -218,6 +207,7 @@ class PengajuanController extends Controller
         $pengajuan->update([
             'status' => $request->status
         ]);
-        return redirect('/persetujuan')->with('message', 'Data Berhasil Ditambahkan');
+        
+        return redirect('/persetujuan')->with('message', $request->status == 'diterima' ? 'Data Diterima' : 'Data Ditolak');
     }
 }

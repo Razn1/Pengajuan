@@ -94,7 +94,6 @@
             </div>
         </div>
         <div class="row mt-4">
-
             <div class="col-lg-5">
                 <div class="card card-carousel overflow-hidden h-100 p-0">
                     <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
@@ -152,39 +151,154 @@
             <div class="col-lg-12 mb-lg-0 mb-4">
                 <div class="card ">
                     <div class="card-header bg-white pb-0 p-3">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="mb-2 text-dark text-uppercase fw-bold ">History laporan</h4>
-                        </div>
-                        {{-- </div>
-          <div class="card-body bg-gradient-secondary"> --}}
-                        {{-- <div class="table-responsive">
-              <table class="table text-dark">
-                  <thead>
-                      <tr align="center">
-                          <th>ID</th>
-                          <th>User</th>
-                          <th>Member</th>
-                          <th>Sepatu</th>
-                          <th>Tanggal</th>
-                          <th>Jumlah Barang</th>
-                          <th>Jumlah Bayar</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      @foreach ($transaksi as $t)
-                          <tr align="center">
-                              <td>{{$t->id}}</td>
-                              <td>{{$t->user->nama}}</td>
-                              <td>{{$t->member->nama}}</td>
-                              <td>{{$t->sepatu->nama}} - {{$t->sepatu->warna}}</td>
-                              <td>{{$t->tanggal}}</td>
-                              <td>{{$t->jumlah_barang}}</td>
-                              <td>Rp.{{number_format($t->jumlah_bayar,2,',','.')}}</td>
-                          </tr>
-                      @endforeach
-                  </tbody>
-              </table>
-            </div> --}}
+                        @if (Auth()->User()->level === 'Pembimbing')
+                            <div class="d-flex justify-content-between">
+                                <h4 class="mb-2 text-dark text-uppercase fw-bold ">History Persetujuan</h4>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table text-dark" id="">
+                                    <thead>
+                                        <tr align="center">
+                                            <th>Nis</th>
+                                            <th>Pembimbing</th>
+                                            <th>Judul Laporan</th>
+                                            <th>Tanggal ACC</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($perset as $ps)
+                                            @if ($ps->id_user == Auth()->id())
+                                                <tr align="center">
+                                                    <td>{{ $ps->nis }}</td>
+                                                    <td>{{ $ps->User->nama }}</td>
+                                                    <td>{{ $ps->Pengajuan->judul_laporan }}</td>
+                                                    <td>{{ $ps->tanggal_acc }}</td>
+                                                    <td>
+                                                        @if ($ps->status === 'Diterima')
+                                                            <a class="btn btn-success"><i class="fa fa-check"
+                                                                    aria-hidden="true"></i></a>
+                                                        @elseif ($ps->status === 'Ditolak')
+                                                            <a class="btn btn-danger"><i class="fa fa-times"
+                                                                    aria-hidden="true"></i></a>
+                                                        @else
+                                                            <a class="btn btn-primary"><i class="fa fa-spinner"
+                                                                    aria-hidden="true"></i></a>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($ps->status === 'Ditolak')
+                                                            <a href="{{ 'https://api.whatsapp.com/send?phone=' . urlencode('62895369564349') . '&text=' . urlencode('pengajuan anda ditolak') }}"
+                                                                target="_blank" class="btn btn-info">Kirim Pesan WA</a>
+                                                        @elseif ($ps->status === 'Diterima')
+                                                            <a href="{{ 'https://api.whatsapp.com/send?phone=' . urlencode('62895369564349') . '&text=' . urlencode('pengajuan anda diterima') }}"
+                                                                target="_blank" class="btn btn-info">Kirim Pesan WA</a>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @elseif(Auth()->User()->level === 'Admin')
+                            <div class="d-flex justify-content-between">
+                                <h4 class="mb-2 text-dark text-uppercase fw-bold ">History Pengajuan</h4>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table text-dark" id="">
+                                    <thead>
+                                        <tr align="center">
+                                            <th>Nis</th>
+                                            <th>Judul Laporan</th>
+                                            <th>Proposal</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($pengajuan as $pg)
+                                            <tr align="center">
+                                                <td>{{ $pg->nis }}</td>
+                                                <td>{{ $pg->judul_laporan }}</td>
+                                                <td><a href="/pengajuan/{{ $pg->id }}/open">{{ $pg->proposal }}</a>
+                                                </td>
+                                                <td>
+                                                    @if ($pg->status == 'diterima')
+                                                        <a class="btn btn-success"><i class="fa fa-check"
+                                                                aria-hidden="true"></i></a>
+                                                    @elseif($pg->status == 'ditolak')
+                                                        <a class="btn btn-danger"><i class="fa fa-times"
+                                                                aria-hidden="true"></i></a>
+                                                    @else
+                                                        <a class="btn btn-primary"><i class="fa fa-spinner"
+                                                                aria-hidden="true"></i></a>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if (Auth::user()->level == 'Pembimbing' && $pengajuan->where('status', 'proses')->isNotEmpty())
+                                                        <button type="button" class="btn btn-primary"
+                                                            data-bs-toggle="modal" data-bs-target="#modalId"
+                                                            onclick="prepareModal({{ $pg->id }},'{{ $pg->nis }}')">
+                                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                                        </button>
+                                                    @endif
+                                                    <a href="/pengajuan/{{ $pg->id }}/open" target="_blank"
+                                                        class="btn btn-info"><i class="fa fa-folder-open"
+                                                            aria-hidden="true"></i></a>
+                                                </td>
+
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @else
+                            <div class="d-flex justify-content-between">
+                                <h4 class="mb-2 text-dark text-uppercase fw-bold ">History Pengajuan</h4>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table text-dark">
+                                    <thead>
+                                        <tr align="center">
+                                            <th>Nis</th>
+                                            <th>Judul Laporan</th>
+                                            <th>Proposal</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($pengajuan as $pg)
+                                            <tr align="center">
+                                                <td>{{ $pg->nis }}</td>
+                                                <td>{{ $pg->judul_laporan }}</td>
+                                                <td><a href="/pengajuan/{{ $pg->id }}/open">{{ $pg->proposal }}</a>
+                                                </td>
+                                                <td>
+                                                    @if ($pg->status == 'diterima')
+                                                        <a class="btn btn-success"><i class="fa fa-check"
+                                                                aria-hidden="true"></i></a>
+                                                    @elseif($pg->status == 'ditolak')
+                                                        <a class="btn btn-danger"><i class="fa fa-times"
+                                                                aria-hidden="true"></i></a>
+                                                    @else
+                                                        <a class="btn btn-primary"><i class="fa fa-spinner"
+                                                                aria-hidden="true"></i></a>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a href="/pengajuan/{{ $pg->id }}/open" target="_blank"
+                                                        class="btn btn-info"><i class="fa fa-folder-open"
+                                                            aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
                     </div>
                     <div class="card-footer">
 

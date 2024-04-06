@@ -76,7 +76,7 @@ class SiswaController extends Controller
         $user = User::find($id);
 
         $validateData = $request->validate([
-            'password' => 'required',
+            'password' => 'required|min:5|max:20',
         ]);
 
         $user->update([
@@ -104,7 +104,7 @@ class SiswaController extends Controller
             'kelas' => 'required',
             'jurusan' => 'required',
             'tempat_pkl' => 'required',
-            'no_telp' => 'required'
+            'no_telp' => 'required|min:12|max:15'
         ]);
         $user = User::find($id);
         $user->update([
@@ -147,7 +147,7 @@ class SiswaController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'old_password' => 'required',
-            'new_password' => 'required',
+            'new_password' => 'required|min:5',
         ]);
 
         if ($validator->fails()) {
@@ -159,13 +159,13 @@ class SiswaController extends Controller
 
         // Periksa apakah password lama cocok
         if (!Hash::check($request->old_password, $siswa->password)) {
-            return redirect()->back()->with('error', 'Old password is incorrect');
+            return redirect()->back()->with('delete', 'Old password Salah');
         }
 
         // Update password baru
         $siswa->password = Hash::make($request->new_password);
         $siswa->save();
 
-        return redirect('/profile')->with('success', 'Password has been changed successfully');
+        return redirect('/profile')->with('message', 'Berhasil Mengganti Password');
     }
 }

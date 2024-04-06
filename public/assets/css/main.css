@@ -1010,7 +1010,7 @@ ol {
 }
 
 .section {
-  padding-top: 100px;
+  padding-top: 20px;
   padding-bottom: 100px;
   position: relative;
 }
@@ -1977,7 +1977,7 @@ ol {
 ========================================*/
 .hero-area {
   position: relative;
-  padding: 180px 0 120px 0;
+  padding: 100px 0 120px 0;
   background: #0d0f8f;
 }
 
@@ -1994,18 +1994,18 @@ ol {
 }
 
 .hero-area .hero-image img {
-  width: 70%;
+  width: 90%;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .hero-area .hero-image {
-    margin-top: 40px;
+    margin-top: 10px;
   }
 }
 
 @media (max-width: 767px) {
   .hero-area .hero-image {
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
 
@@ -2017,8 +2017,8 @@ ol {
 }
 
 .hero-area .hero-content h1 {
-  font-size: 38px;
-  font-weight: 800;
+  font-size: 30px;
+  font-weight: 700;
   line-height: 50px;
   color: #fff;
   text-shadow: 0px 3px 8px #00000017;
@@ -2030,13 +2030,13 @@ ol {
 }
 
 .hero-area .hero-content p {
-  margin-top: 30px;
+  margin-top: 10px;
   font-size: 15px;
   color: #fff;
 }
 
 .hero-area .hero-content .button {
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .hero-area .hero-content .button .btn {

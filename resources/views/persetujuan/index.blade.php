@@ -14,7 +14,7 @@
                                     <a href="/persetujuan/cetak" class="btn bg-info text-dark" target="_blank">Cetak Data</a>
                                 @endif
                                 <div class="table-responsive">
-                                    <table class="table text-dark" id="example">
+                                    <table class="table text-dark" id="">
                                         <thead>
                                             <tr align="center">
                                                 <th>Nis</th>

@@ -18,7 +18,7 @@
                                         <label for="" class="form-label">Password</label>
                                         <input type="password" name="password" id=""
                                             class="form-control @error('password') is-invalid @enderror"
-                                            aria-describedby="helpId">
+                                            aria-describedby="helpId" required>
                                         @error('password')
                                             <div class="invalidate-feedback">
                                                 {{ $message }}

@@ -11,7 +11,7 @@
                             <div class="card-header bg-white">
                                 <h2>Data Siswa</h2>
                                 <div class="table-responsive">
-                                    <table class="table text-dark" id="example">
+                                    <table class="table text-dark" id="">
                                         <thead>
                                             <tr align="center">
                                                 <th>NIS</th>
@@ -34,11 +34,13 @@
                                                     <td>{{ $s->tempat_pkl }}</td>
                                                     <td>{{ $s->no_telp }}</td>
                                                     <td>{{ $s->username }}</td>
-                                                    <td><a href="/siswa/{{ $s->id }}/ed"
-                                                        class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                        <a href="/user/{{ $s->id }}/delete"
-                                                            class="btn btn-danger"
-                                                            onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ini?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                    <td>
+                                                        <a href="/siswa/{{ $s->id }}/ed" class="btn btn-warning">
+                                                            <<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                        </a>
+                                                        <a href="/user/{{ $s->id }}/delete" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ini?')"><i
+                                                                class="fa fa-trash" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

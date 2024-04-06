@@ -67,11 +67,7 @@ class PersetujuanController extends Controller
      */
     public function create()
     {
-        // $tanggal = date('Y-m-d');
-        // $user = User::all();
-        // $pengajuan = Pengajuan::all();
-        // $siswa = Siswa::all();
-        // return view('persetujuan.tambah', compact(['user', 'pengajuan', 'siswa'],'tanggal'));
+        
     }
 
     /**
@@ -83,14 +79,6 @@ class PersetujuanController extends Controller
     public function store(Request $request)
     {
 
-        // Persetujuan::create([
-        //     'nis' => $request->nis,
-        //     'id_user' => $request->id_user,
-        //     'tanggal' => $request->tanggal,
-        //     'keterangan' => $request->keterangan,
-        //     $request->except(['_token']),
-        // ]);
-        // return redirect('/persetujuan')->with('message', 'data telah tersimpan');
     }
 
     /**
@@ -101,11 +89,7 @@ class PersetujuanController extends Controller
      */
     public function show($id)
     {
-        // $persetujuan = Persetujuan::find($id);
-        // $user = User::all();
-        // $pengajuan = Pengajuan::all();
-        // $siswa = Siswa::all();
-        // return view('persetujuan.edit', compact(['persetujuan'], 'user', 'pengajuan', 'siswa'));
+        
     }
 
     /**
@@ -128,21 +112,7 @@ class PersetujuanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $validateData = $request->validate([
-        //     'nis' => 'required',
-        //     'id_user' => 'required',
-        //     'tanggal' => 'required',
-        //     'keterangan' => 'required',
-        // ]);
-        // $persetujuan = Persetujuan::find($id);
-        // $persetujuan->update([
-        //     'nis' => $request->nis,
-        //     'id_user' => $request->id_user,
-        //     'tanggal' => $request->tanggal,
-        //     'keterangan' => $request->keterangan,
-        //     $request->except(['_token']),
-        // ]);
-        // return redirect('/persetujuan')->with('update', 'data telah diupdate');
+        
     }
 
     /**
@@ -153,8 +123,6 @@ class PersetujuanController extends Controller
      */
     public function destroy($id)
     {
-        // $persetujuan = Persetujuan::find($id);
-        // $persetujuan->delete();
-        // return redirect('/persetujuan')->with('delete', 'data telah dihapus');
+
     }
 }

@@ -7,9 +7,9 @@
     <title>Pengajuan Judul Laporan</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.svg') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/i.png') }}" />
 
-    <!-- ========================= CSS here ========================= -->
+    <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/LineIcons.2.0.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}" />
@@ -18,35 +18,61 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
 
     <style>
-        .sticky #log img {
-            content: url('{{ asset('assets/img/i.png') }}');
+        .container {
+            margin-top: 0;
         }
 
+        #log {
+            font-family: 'Fantasque Sans Mono', monospace;
+            font-size: 40px;
+            font-weight: 700;
+            color: white;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .sticky #log img,
         .navbar-area #log img {
             content: url('{{ asset('assets/img/i.png') }}');
         }
 
         .hero-image {
             display: flex;
-            justify-content: center;
+            justify-content: right;
         }
 
         .hero-image img {
-            max-width: 100%;
+            max-width: 120%;
+        }
+
+        .scroll-color-change {
+            color: white;
+        }
+
+        .scroll-color-change.active {
+            color: #0d0f8f;
+        }
+
+        /* Center align content within section */
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-content h1,
+        .hero-content p,
+        .hero-content .button {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-content .button a {
+            display: block;
+            margin-bottom: 10px;
         }
     </style>
 
 </head>
 
 <body>
-    <!--[if lte IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
-
     <!-- Preloader -->
     <div class="preloader">
         <div class="preloader-inner">
@@ -57,7 +83,6 @@
         </div>
     </div>
     <!-- /End Preloader -->
-
     <!-- Start Header Area -->
     <header class="header navbar-area">
         <div class="container">
@@ -68,6 +93,7 @@
                         <nav class="navbar navbar-expand-lg">
                             <a id="log" class="navbar-brand" href="index.html">
                                 <img src="{{ asset('assets/img/i.png') }}" alt="Logo">
+                                <label id="label-pengajuan" class="scroll-color-change">PENGAJUAN</label>
                             </a>
                             <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -77,7 +103,7 @@
                                 <span class="toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                            </div> <!-- navbar collapse -->
+                            </div>
                             <div class="button add-list-button">
                                 <ul id="nav" class="navbar-nav ms-auto">
                                     <li class="nav-item">
@@ -93,32 +119,32 @@
                         <!-- End Navbar -->
                     </div>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+        </div>
     </header>
     <!-- End Header Area -->
-
     <!-- Start Hero Area -->
     <section id="home" class="hero-area">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-md-12 col-12">
                     <div class="hero-content">
-                        <h1 class="wow fadeInLeft" data-wow-delay=".4s">A powerful app for your business.</h1>
-                        <p class="wow fadeInLeft" data-wow-delay=".6s">From open source to pro services, Piqes helps
-                            you
-                            to build, deploy, test, and monitor apps.</p>
-                        <div class="button wow fadeInLeft" data-wow-delay=".8s">
+                        <h1 class="wow fadeInLeft" data-wow-delay=".4s">Temukan kemudahan dalam </h1>
+                        <h1 class="wow fadeInLeft" data-wow-delay=".4s"> mengajukan judul laporan Anda dengan kami.</h1>
+                        <p class="wow fadeInLeft" data-wow-delay=".6s">
+                            Nikmati kemudahan dan keunggulan dalam proses Pengajuan Judul Laporan. Kami hadir untuk
+                            mendukung setiap langkah kreatifitas dan penelitian Anda dengan sistem yang terintegrasi.</p>
+                        {{-- <div class="button wow fadeInLeft" data-wow-delay=".8s">
                             <a href="javascript:void(0)" class="btn"><i class="lni lni-apple"></i> App Store</a>
                             <a href="javascript:void(0)" class="btn btn-alt"><i class="lni lni-play-store"></i>
                                 Google
                                 Play</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-12 col-12">
                     <div class="hero-image wow fadeInRight" data-wow-delay=".4s">
-                        <img src="{{ asset('assets/img/marhas.png') }}" alt="#">
+                        <img src="{{ asset('assets/img/buku.png') }}" alt="#">
                     </div>
                 </div>
             </div>
@@ -126,110 +152,12 @@
     </section>
     <!-- End Hero Area -->
 
-
-
-    <!-- Start Footer Area -->
-    <footer class="footer">
-        <!-- Start Footer Top -->
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer f-about">
-                            <div class="logo">
-                                <a href="index.html">
-                                    <img src="{{ asset('assets/img/marhas.png') }}" alt="#">
-                                </a>
-                            </div>
-                            <p>Making the world a better place through constructing elegant hierarchies.</p>
-                            <ul class="social">
-                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-youtube"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="lni lni-pinterest"></i></a></li>
-                            </ul>
-                            <p class="copyright-text">Designed and Developed by <a href="https://uideck.com/"
-                                    rel="nofollow" target="_blank">UIdeck</a>
-                            </p>
-                        </div>
-                        <!-- End Single Widget -->
-                    </div>
-                    <div class="col-lg-8 col-md-8 col-12">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-12">
-                                <!-- Single Widget -->
-                                <div class="single-footer f-link">
-                                    <h3>Solutions</h3>
-                                    <ul>
-                                        <li><a href="javascript:void(0)">Marketing</a></li>
-                                        <li><a href="javascript:void(0)">Analytics</a></li>
-                                        <li><a href="javascript:void(0)">Commerce</a></li>
-                                        <li><a href="javascript:void(0)">Insights</a></li>
-                                        <li><a href="javascript:void(0)">Promotion</a></li>
-                                    </ul>
-                                </div>
-                                <!-- End Single Widget -->
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-12">
-                                <!-- Single Widget -->
-                                <div class="single-footer f-link">
-                                    <h3>Support</h3>
-                                    <ul>
-                                        <li><a href="javascript:void(0)">Pricing</a></li>
-                                        <li><a href="javascript:void(0)">Documentation</a></li>
-                                        <li><a href="javascript:void(0)">Guides</a></li>
-                                        <li><a href="javascript:void(0)">API Status</a></li>
-                                        <li><a href="javascript:void(0)">Live Support</a></li>
-                                    </ul>
-                                </div>
-                                <!-- End Single Widget -->
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-12">
-                                <!-- Single Widget -->
-                                <div class="single-footer f-link">
-                                    <h3>Company</h3>
-                                    <ul>
-                                        <li><a href="javascript:void(0)">About Us</a></li>
-                                        <li><a href="javascript:void(0)">Our Blog</a></li>
-                                        <li><a href="javascript:void(0)">Jobs</a></li>
-                                        <li><a href="javascript:void(0)">Press</a></li>
-                                        <li><a href="javascript:void(0)">Contact Us</a></li>
-                                    </ul>
-                                </div>
-                                <!-- End Single Widget -->
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-12">
-                                <!-- Single Widget -->
-                                <div class="single-footer f-link">
-                                    <h3>Legal</h3>
-                                    <ul>
-                                        <li><a href="javascript:void(0)">Terms & Conditions</a></li>
-                                        <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                                        <li><a href="javascript:void(0)">Catering Services</a></li>
-                                        <li><a href="javascript:void(0)">Customer Relations</a></li>
-                                        <li><a href="javascript:void(0)">Innovation</a></li>
-                                    </ul>
-                                </div>
-                                <!-- End Single Widget -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/ End Footer Top -->
-    </footer>
-    <!--/ End Footer Area -->
-
-    <!-- ========================= scroll-top ========================= -->
+    <!-- Scroll Top Button -->
     <a href="#" class="scroll-top">
         <i class="lni lni-chevron-up"></i>
     </a>
 
-    <!-- ========================= JS here ========================= -->
+    <!-- JS -->
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('assets/js/tiny-slider.js') }}"></script>
@@ -237,15 +165,18 @@
     <script src="{{ asset('assets/js/count-up.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script type="text/javascript">
-        //====== counter up 
-        var cu = new counterUp({
-            start: 0,
-            duration: 2000,
-            intvalues: true,
-            interval: 100,
-            append: " ",
+        // Add scroll event listener
+        window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+            var label = document.getElementById('label-pengajuan');
+
+            // Add or remove 'active' class based on scroll position
+            if (scrollPosition > 50) {
+                label.classList.add('active');
+            } else {
+                label.classList.remove('active');
+            }
         });
-        cu.start();
     </script>
 </body>
 

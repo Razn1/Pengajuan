@@ -50,7 +50,7 @@ class UploadLaporanController extends Controller
     {
         $validateData = $request->validate([
             'judul' => 'required',
-            'laporan' => 'required|max:2048|mimes:pdf',
+            'laporan' => 'required|max:10000|mimes:pdf',
         ]);
 
         if ($request->hasFile('laporan')) {
@@ -74,6 +74,34 @@ class UploadLaporanController extends Controller
             return redirect()->back()->with('delete', 'Tidak ada berkas yang diunggah');
         }
     }
+    // public function store(Request $request)
+    // {
+    //     $validateData = $request->validate([
+    //         'judul' => 'required',
+    //         'laporan' => 'required|max:10000|mimes:pdf',
+    //     ]);
+
+    //     if ($request->hasFile('laporan')) {
+    //         $berkas = $request->file('laporan');
+    //         $namaLaporan = time() . '_' . $berkas->getClientOriginalName();
+
+    //         if ($berkas->getClientOriginalExtension() !== 'pdf') {
+    //             return redirect()->back()->with('delete', 'Laporan harus berupa file PDF');
+    //         }
+
+    //         $berkas->move(public_path('uploads'), $namaLaporan);
+
+    //         UploadLaporan::create([
+    //             'nis' => Auth::user()->nis,
+    //             'judul' => $request->judul,
+    //             'laporan' => $namaLaporan,
+    //         ]);
+
+    //         return redirect('/laporan')->with('message', 'Data Berhasil Ditambahkan');
+    //     } else {
+    //         return redirect()->back()->with('delete', 'Tidak ada berkas yang diunggah');
+    //     }
+    // }
 
 
     /**
@@ -111,7 +139,7 @@ class UploadLaporanController extends Controller
     {
         $validateData = $request->validate([
             'judul' => 'required',
-            'laporan' => 'nullable|max:10000|mimes:pdf'
+            'laporan' => 'nullable|max:5000|mimes:pdf'
         ]);
 
         // Temukan laporan berdasarkan ID

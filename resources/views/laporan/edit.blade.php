@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="form-label">Judul</label>
-                                    <input type="text" name="judul" value="{{$laporan->judul}}" id="" class="form-control @error('judul') is-invalid @enderror"  aria-describedby="helpId">
+                                    <input type="text" name="judul" value="{{$laporan->judul}}" id="" class="form-control @error('judul') is-invalid @enderror"  aria-describedby="helpId" required>
                                     @error('judul')
                                     <div class="invalidate-feedback">
                                         {{$message}}

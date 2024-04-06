@@ -82,17 +82,7 @@ class UserController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $validateData = $request->validate([
-            'nama' => 'required',
-            'username' => 'required'
-        ]);
-        $user = User::find($id);
-        $user->update([
-            'nama' => $request->nama,
-            'username' => $request->username,
-            $request->except(['_token'])
-        ]);
-        return redirect('/prof')->with('update', 'Data Berhasil Diupdate');
+
     }
 
     /**
@@ -106,9 +96,10 @@ class UserController extends Controller
     {
         $validateData = $request->validate([
             'nama' => 'required',
-            'username' => 'required',
+            'username' => 'required|unique:users,username,' . $id,
             'level' => 'required'
         ]);
+
         $user = User::find($id);
         $user->update([
             'nama' => $request->nama,
@@ -116,9 +107,13 @@ class UserController extends Controller
             'level' => $request->level,
             $request->except(['_token'])
         ]);
+
+        if (auth()->user()->level === 'Pembimbing') {
+            return redirect('/prof')->with('update', 'Data Berhasil Diupdate');
+        }
+
         return redirect('/user')->with('update', 'Data Berhasil Diupdate');
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -148,7 +143,7 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'old_password' => 'required',
-            'new_password' => 'required',
+            'new_password' => 'required|min:5',
         ]);
 
         if ($validator->fails()) {
@@ -160,13 +155,13 @@ class UserController extends Controller
 
         // Periksa apakah password lama cocok
         if (!Hash::check($request->old_password, $user->password)) {
-            return redirect()->back()->with('error', 'Old password is incorrect');
+            return redirect()->back()->with('delete', 'Old Password Salah');
         }
 
         // Update password baru
         $user->password = Hash::make($request->new_password);
         $user->save();
 
-        return redirect('/prof')->with('success', 'Password has been changed successfully');
+        return redirect('/prof')->with('message', 'Berhasil Mengganti Password');
     }
 }
