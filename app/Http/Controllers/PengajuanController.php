@@ -54,7 +54,7 @@ class PengajuanController extends Controller
     
         $pengajuan = Pengajuan::where('nis', $userId)
             ->where('status', 'proses')
-            ->paginate(10);
+            ->get();
     
         $user = User::find($userId);
         return view('pengajuan.indexsiswa', compact('pengajuan', 'user'));
