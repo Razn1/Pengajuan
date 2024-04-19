@@ -36,9 +36,7 @@
                 <form action="/loginsiswa" method="get" role="form">
                     @csrf
                     <button class="btn mt-3">Siswa</button>
-                    
                 </form>
-                <button class="btn mt-3">Siswa</button>
             </div>
             <div class="toggle-container">
                 <div class="toggle">
