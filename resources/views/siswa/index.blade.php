@@ -36,7 +36,7 @@
                                                     <td>{{ $s->username }}</td>
                                                     <td>
                                                         <a href="/siswa/{{ $s->id }}/ed" class="btn btn-warning">
-                                                            <<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                         </a>
                                                         <a href="/user/{{ $s->id }}/delete" class="btn btn-danger"
                                                             onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ini?')"><i

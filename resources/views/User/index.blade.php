@@ -10,9 +10,6 @@
                         <div class="card">
                             <div class="card-header bg-white">
                                 <h2>Data User</h2>
-
-                                {{-- </div>
-                        <div class="card-body bg-gradient-secondary"> --}}
                                 <div class="table-responsive">
                                     <table class="table text-dark">
                                         <thead>
@@ -45,7 +42,6 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-
                             </div>
                         </div>
                     </div>

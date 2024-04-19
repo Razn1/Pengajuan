@@ -10,12 +10,6 @@ use App\Http\Controllers\LoginsiswaController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PersetujuanController;
 use App\Http\Controllers\UploadLaporanController;
-use App\Mail\SendEmail;
-use App\Models\UploadLaporan;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Auth;
-
 
 /*
 |--------------------------------------------------------------------------
